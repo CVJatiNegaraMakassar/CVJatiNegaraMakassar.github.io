@@ -262,6 +262,53 @@ body {
             border-color: #e91e63;
         }
 
+
+     /* CSS khusus untuk section akad nikah dan resepsi */
+     .section-nikah, .section-resepsi {
+            padding: 50px 0;
+            text-align: center; /* Teks di tengah */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container-nikah, .container-resepsi {
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #000; /* Teks berwarna hitam */
+        }
+
+        .container h2 {
+            margin-bottom: 20px;
+        }
+
+        .container p {
+            margin-bottom: 10px;
+        }
+
+        .alamat {
+            margin-top: 20px;
+        }
+
+        .alamat a {
+            text-decoration: none;
+            color: #e91e63;
+        }
+
+        /* CSS khusus untuk tombol simpan acara ke kalender */
+        .btn-kalender {
+            background-color: #e91e63;
+            border-color: #e91e63;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -317,12 +364,12 @@ body {
         </div>
       </div>
 
-
+<!--Section Profile-->
       <section class="mempelai">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card  mr-5">
                         <img src="img/story/2.png" class="card-img-top" alt="Foto Pengantin Wanita">
                         <div class="card-body">
                             <div class="biodata">
@@ -336,7 +383,7 @@ body {
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card">
+                    <div class="card  mr-5">
                         <img src="img/story/1.png" class="card-img-top" alt="Foto Pengantin Pria">
                         <div class="card-body">
                             <div class="biodata">
@@ -353,6 +400,9 @@ body {
         </div>
     </section>
     
+
+
+    <!--Section Kehadiran-->
     <section class="konfirmasi-kehadiran"> 
       <div class="container konfirmasi-container">
           <h1>Konfirmasi Kehadiran</h1>
@@ -384,6 +434,44 @@ body {
       </div>
   </section>
       
+
+  <section class="section-nikah">
+    <div class="container">
+        <div class="container-nikah">
+            <h2>AKAD NIKAH</h2>
+            <p>Jumat, 28 April 2023</p>
+            <p>pukul 09:00 WIB - selesai</p>
+            <p class="alamat">
+                <a href="https://maps.google.com/?q=Plataran Menteng, Jalan HOS. Cokroaminoto, RT.6/RW.4, Gondangdia, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta, Indonesia"   
+target="_blank">
+                    Plataran Menteng, Jalan HOS. Cokroaminoto, RT.6/RW.4, Gondangdia, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta, Indonesia   
+
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section-resepsi">
+    <div class="container">
+        <div class="container-resepsi">
+            <h2>RESEPSI</h2>
+            <p>Jumat, 15 Maret 2024</p>
+            <p>pukul 15:00 WIB - selesai</p>
+            <p class="alamat">
+                <a href="https://www.google.com/maps/search/?api=1&query=DoubleTree+by+Hilton+Jakarta+-+Diponegoro+Jakarta+Pusat" target="_blank">
+                    DoubleTree by Hilton Jakarta - Diponegoro Jakarta Pusat
+                </a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="container text-center">
+    <button class="btn-kalender" onclick="simpanKeKalender()">SIMPAN ACARA KE KALENDER</button>
+</div>
+
+
     </section>
 <!--Diluat halaman Buka Undangan-->
 
@@ -455,6 +543,46 @@ let x = setInterval(countdown, 1000);
 
             window.open(urlWhatsApp, '_blank');
         }
+
+
+        //Simpan kalender
+        function simpanKeKalender() {
+    const akadNikah = {
+        judul: 'Akad Nikah Angga & Fina',
+        tanggalMulai: '20230428T090000',
+        tanggalSelesai: '20230428T120000',
+        lokasi: 'Plataran Menteng, Jalan HOS. Cokroaminoto, RT.6/RW.4, Gondangdia, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta, Indonesia',
+        deskripsi: 'Akad nikah Angga & Fina'
+    };
+
+    const resepsi = {
+        judul: 'Resepsi Pernikahan Angga & Fina',
+        tanggalMulai: '20240315T150000',
+        tanggalSelesai: '20240315T180000',
+        lokasi: 'DoubleTree by Hilton Jakarta - Diponegoro Jakarta Pusat',
+        deskripsi: 'Resepsi pernikahan Angga & Fina'
+    };
+
+    // Membuat tautan Google Calendar untuk akad nikah
+    const urlAkadNikah = 'https://www.google.com/calendar/render?action=TEMPLATE' +
+        '&text=' + encodeURIComponent(akadNikah.judul) +
+        '&dates=' + akadNikah.tanggalMulai + '/' + akadNikah.tanggalSelesai +
+        '&location=' + encodeURIComponent(akadNikah.lokasi) +
+        '&details=' + encodeURIComponent(akadNikah.deskripsi);
+
+    // Membuat tautan Google Calendar untuk resepsi
+    const urlResepsi = 'https://www.google.com/calendar/render?action=TEMPLATE' +
+        '&text=' + encodeURIComponent(resepsi.judul) +
+        '&dates=' + resepsi.tanggalMulai + '/' + resepsi.tanggalSelesai +
+        '&location=' + encodeURIComponent(resepsi.lokasi) +
+        '&details=' + encodeURIComponent(resepsi.deskripsi);
+
+    // Membuka kedua tautan di tab baru
+    window.open(urlAkadNikah, '_blank');
+    window.open(urlResepsi, '_blank');
+}
+
+        
     </script>
 </body>
 </html>
