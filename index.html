@@ -77,6 +77,12 @@ body {
             font-size: 1.2rem;
             cursor: pointer;
         }
+.btn-buka-undangan:hover {
+  background-color: #c2185b; /* Warna pink yang lebih gelap saat hover */
+  transform: translateY(-2px); /* Efek hover: naik sedikit */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Bayangan lebih tegas saat hover */
+}
+
         /* CSS untuk halaman utama */
         .main {
             padding: 0; 
@@ -433,17 +439,17 @@ body {
 
 
     <section class="hero">
-        <audio id="myAudio" loop>
-            <source src="music.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+       
         <div class="container">
            <h1>Angga & Fina</h1>
             <button class="btn-buka-undangan" onclick="bukaUndangan()">Buka Undangan</button>
         </div>
     </section>
 <!--Tombol Undangan End-->
-
+<audio id="myAudio" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
     <section class="main" id="halamanUtama"> 
         <div class="main-header">
             <div class="countdown">
