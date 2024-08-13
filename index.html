@@ -15,7 +15,7 @@
 
 /* CSS kustom untuk navbar, hero, dan halaman utama */
 body {
-    background-color: #ffd1dc; /* Warna latar belakang pink untuk seluruh halaman */
+    background-color: #ea1e63; /* Warna pink yang lebih gelap saat hover */
 }
 
 .navbar {
@@ -47,7 +47,7 @@ body {
         }
 
         .nav-link:hover {
-            color: #007bff; 
+            color:#e91e63; 
         }
 
         .hero {
@@ -55,10 +55,13 @@ body {
             padding: 100px 0;
             background-image: url('img/gallery/6.png'); 
             background-size: cover;
-  color: #e91e63;
+                 color: #e91e63;
             transition: opacity 0.5s ease; 
+            box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2); /* Bayangan di sekitar .hero */
         }
 
+
+        
         .hero.fade-out {
             opacity: 0;
         }
