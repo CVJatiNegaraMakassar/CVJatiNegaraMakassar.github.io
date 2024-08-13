@@ -467,6 +467,9 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
                     Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145
                 </a>
             </p>
+            <div class="text-center mt-3"> <button class="btn-kalender" onclick="simpanResepsiKeKalender()">SIMPAN ACARA KE KALENDER</button> 
+            </div> 
+        </div>
         </div>
     </div>
 </section>
@@ -528,22 +531,28 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
 let x = setInterval(countdown, 1000);
 
 
-    function kirimRespon() {
-            const nama = document.getElementById('nama').value;
-            const kehadiran = document.querySelector('input[name="kehadiran"]:checked').value;
+function kirimRespon() {
+    const nama = document.getElementById('nama').value;
+    const kehadiran = document.querySelector('input[name="kehadiran"]:checked').value;
 
-            let pesan = "Assalamualaikum, saya " + nama + ". ";
-            if (kehadiran === 'hadir') {
-                pesan += "Saya akan datang ke acara pernikahan Anda. Terima kasih atas undangannya!";
-            } else {
-                pesan += "Maaf, saya tidak bisa hadir ke acara pernikahan Anda. Semoga acara berjalan lancar dan bahagia selalu!";
-            }
+    // Validasi nama lengkap
+    if (nama.trim() === '') {
+        alert("Maaf, nama anda harus di isi dulu"); // Tampilkan pesan error
+        return; // Hentikan eksekusi fungsi jika nama kosong
+    }
 
-            const nomorWhatsApp = "6282286344446"; // Ganti dengan nomor WhatsApp tujuan
-            const urlWhatsApp = "https://wa.me/" + nomorWhatsApp + "?text=" + encodeURIComponent(pesan);
+    let pesan = "Assalamualaikum, saya " + nama + ". ";
+    if (kehadiran === 'hadir') {
+        pesan += "Saya akan datang ke acara pernikahan Anda. Terima kasih atas undangannya!";
+    } else {
+        pesan += "Maaf, saya tidak bisa hadir ke acara pernikahan Anda. Semoga acara berjalan lancar dan bahagia selalu!";
+    }
 
-            window.open(urlWhatsApp, '_blank');
-        }
+    const nomorWhatsApp = "6282286344446"; // Ganti dengan nomor WhatsApp tujuan
+    const urlWhatsApp = "https://wa.me/" + nomorWhatsApp + "?text=" + encodeURIComponent(pesan);
+
+    window.open(urlWhatsApp, '_blank');
+}
 
 
         //Simpan kalender
@@ -556,13 +565,6 @@ let x = setInterval(countdown, 1000);
         deskripsi: 'Akad nikah Angga & Fina'
     };
 
-    const resepsi = {
-        judul: 'Resepsi Pernikahan Angga & Fina',
-        tanggalMulai: '20240915T090000',
-        tanggalSelesai: '20240915T120000',
-        lokasi: 'Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145',
-        deskripsi: 'Resepsi pernikahan Angga & Fina'
-    };
 
     // Membuat tautan Google Calendar untuk akad nikah
     const urlAkadNikah = 'https://www.google.com/calendar/render?action=TEMPLATE' +
@@ -583,7 +585,27 @@ let x = setInterval(countdown, 1000);
     window.open(urlResepsi, '_blank');
 }
 
-        
+function simpanResepsiKeKalender() {
+    const resepsi = {
+        judul: 'Resepsi Pernikahan Angga & Fina',
+        tanggalMulai: '20240915T150000',
+        tanggalSelesai: '20240915T180000',
+        lokasi: 'Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145',
+        deskripsi: 'Resepsi pernikahan Angga & Fina'
+    };
+
+    // Membuat tautan Google Calendar untuk resepsi
+    const urlResepsi = 'https://www.google.com/calendar/render?action=TEMPLATE' +
+        '&text=' + encodeURIComponent(resepsi.judul) +
+        '&dates=' + resepsi.tanggalMulai + '/' + resepsi.tanggalSelesai +
+        '&location=' + encodeURIComponent(resepsi.lokasi) +
+        '&details=' + encodeURIComponent(resepsi.deskripsi);
+
+    // Membuka tautan di tab baru
+    window.open(urlResepsi, '_blank');
+}
+
+
     </script>
 </body>
 </html>
