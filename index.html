@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* CSS kustom untuk navbar, hero, dan halaman utama */
+        body {
+            background-color: #ffd1dc; /* Warna latar belakang pink untuk seluruh halaman */
+        }
+
+/* CSS kustom untuk navbar, hero, dan halaman utama */
+body {
+    background-color: #ffd1dc; /* Warna latar belakang pink untuk seluruh halaman */
+}
+
+.navbar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6; 
+    transition: background-color 0.3s ease; 
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar.scrolled {
+    background-color: transparent; /* Ubah latar belakang navbar menjadi transparan */
+    backdrop-filter: blur(5px);    /* Tambahkan efek blur untuk tampilan yang lebih halus */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Atur border bawah dengan transparansi */
+}
+
+
+        .navbar-brand {
+            font-family: 'Great Vibes', cursive; 
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: #343a40; 
+        }
+
+        .nav-link:hover {
+            color: #007bff; 
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+            background-image: url('img/gallery/6.png'); 
+            background-size: cover;
+            color: white;
+            transition: opacity 0.5s ease; 
+        }
+
+        .hero.fade-out {
+            opacity: 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-buka-undangan {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* CSS untuk halaman utama */
+        .main {
+            padding: 0; 
+            text-align: center;
+            color: white; 
+            display: none; 
+            opacity: 0; 
+            transition: opacity 0.5s ease; 
+        }
+
+        .main-header {
+            background-image: url('img/gallery/6.png');  /* Gunakan gambar sebagai latar belakang */
+            background-size: cover;
+            background-position: center;
+            min-height: 500px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown {
+    /* background-color: rgba(0, 0, 0, 0.5); */ /* Hapus atau komentari baris ini */
+    background-size: cover; /* Pastikan gambar menutupi seluruh area */
+    background-position: center; /* Posisikan gambar di tengah */
+    padding: 20px;
+    border-radius: 10px;
+    color: white; /* Atur warna teks menjadi putih agar kontras */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Tambahkan bayangan teks untuk keterbacaan */
+    width: 80%; /* Lebarkan countdown menjadi 80% dari lebar container */
+    max-width: 500px; /* Batasi lebar maksimum agar tidak terlalu besar pada layar lebar */
+    padding: 30px; /* Tambahkan sedikit padding untuk ruang lebih */
+    font-size: 1.5rem; /* Perbesar ukuran font secara keseluruhan */
+}
+
+
+        .countdown h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #f08080; /* Ubah warna teks menjadi pink agak terang */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Ubah warna bayangan menjadi lebih terang */
+}
+        .countdown p {
+            font-size: 1.2rem;
+            color: #f08080; /* Ubah warna teks menjadi pink agak terang */
+       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Ubah warna bayangan menjadi lebih terang */
+}
+
+        .main-content {
+            padding: 50px 0;
+            background-color: #e91e63; 
+        }
+
+        .main.fade-in {
+            opacity: 1;
+        }
+
+        .main img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .main p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .ucapan-syukur { /* Class baru untuk ucapan syukur */
+            background-color: rgba(255, 255, 255, 0.8);  /* Warna latar belakang putih transparan */
+            padding: 20px;
+            border-radius: 10px;
+            color: #333; /* Warna teks gelap agar kontras */
+        }
+
+/* CSS untuk section mempelai */
+.mempelai .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Untuk mengatur elemen agar sejajar secara vertikal di tengah */
+}
+
+.mempelai .col-md-6 {
+    display: flex; /* Menggunakan flexbox untuk mengatur tata letak dalam kolom */
+    flex-direction: column; /* Mengatur elemen dalam kolom menjadi vertikal */
+    align-items: center; /* Mengatur elemen agar sejajar secara horizontal di tengah */
+    text-align: center; /* Mengatur teks agar berada di tengah */
+}
+
+/* Media query untuk layar kecil (misalnya, ponsel) */
+@media (max-width: 768px) {
+    .mempelai .row {
+        flex-direction: column; /* Mengatur elemen dalam baris menjadi vertikal pada layar kecil */
+    }
+
+    
+    .mempelai .col-md-6 {
+        width: 100%; /* Membuat kolom mengambil lebar penuh pada layar kecil */
+        margin-bottom: 20px; /* Tambahkan margin bawah untuk jarak antar kolom */
+    }
+
+    .mempelai .biodata {
+        text-align: center; /* Mengatur teks biodata agar berada di tengah pada layar kecil */
+    }
+}
+
+/* Rotasi teks (sesuaikan nilai sesuai kebutuhan) */
+
+
+.mempelai .card {
+    border: none; /* Hapus border bawaan card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan halus */
+    transition: transform 0.2s ease; /* Transisi untuk efek hover */
+}
+
+.mempelai .card:hover {
+    transform: translateY(-5px); /* Efek hover: naik sedikit */
+}
+
+.mempelai .card-img-top {
+    border-top-left-radius: 10px; /* Rounded corner di kiri atas */
+    border-top-right-radius: 10px; /* Rounded corner di kanan atas */
+}
+
+.mempelai .card-body {
+    padding: 30px; /* Tambahkan padding pada card-body */
+}
+
+.mempelai .biodata {
+    text-align: left;
+}
+
+.mempelai .biodata h3 {
+    margin-bottom: 10px;
+}
+
+.mempelai .biodata p {
+    margin-bottom: 5px;
+}
+
+/* Media query untuk layar sedang ke atas */
+@media (min-width: 768px) {
+    .mempelai .col-md-6 {
+        flex: 0 0 40%; /* Lebarkan kolom menjadi 40% */
+        max-width: 40%; 
+    }
+}
+
+.mempelai .card-title {
+    font-size: 1.5rem; /* Sesuaikan ukuran font judul sesuai kebutuhan */
+}
+.konfirmasi-kehadiran {
+            padding: 50px 0;
+        }
+
+        .konfirmasi-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #e91e63;
+        }
+
+        .konfirmasi-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #e91e63;
+        }
+
+        .konfirmasi-container .form-group {
+            margin-bottom: 20px;
+        }
+
+        .konfirmasi-container .form-check {
+            margin-bottom: 10px;
+            color: #e91e63;
+        }
+
+        .konfirmasi-container .btn-primary {
+            background-color: #e91e63;
+            border-color: #e91e63;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Nama Undangan</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cerita Kita</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Acara</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Galeri</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Ucapan & Doa</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="hero">
+        <div class="container">
+           <h1>Angga & Fina</h1>
+            <button class="btn-buka-undangan" onclick="bukaUndangan()">Buka Undangan</button>
+        </div>
+    </section>
+<!--Tombol Undangan End-->
+
+
+    <section class="main" id="halamanUtama"> 
+        <div class="main-header">
+            <div class="countdown">
+                <h2>Simpan Tanggalnya</h2>
+                <p id="countdown-timer"></p> 
+            </div>
+        </div>
+        <div class="main-content container">
+          <div class="ucapan-syukur">
+            <h2 class="text-center mb-3">Bismillahirrahmanirrahim</h2> <p>Dengan mengucap syukur kepada Allah SWT, kami berbahagia mengundang Anda untuk hadir pada acara pernikahan kami.</p> 
+        </div>
+      </div>
+
+
+      <section class="mempelai">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="img/story/2.png" class="card-img-top" alt="Foto Pengantin Wanita">
+                        <div class="card-body">
+                            <div class="biodata">
+                                <h3>Alfina Febrianty</h3>
+                                <p>Putri dari Ayah ... & Ibu ...</p>
+                                <p>Alamat: ... No. ..., Makassar</p>
+                                <p><a href="https://www.instagram.com/adindamawarta/" target="_blank">@Alfina</a></p> 
+                            </div>
+                            <h2 class="card-title text-center mt-3">Pengantin Wanita</h2> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="img/story/1.png" class="card-img-top" alt="Foto Pengantin Pria">
+                        <div class="card-body">
+                            <div class="biodata">
+                                <h3>AnggaPutraJN</h3>
+                                <p>Putra dari Ayah ... & Ibu ..</p>
+                                <p>Alamat: ... No. ..., Makassar</p>
+                                <p><a href="https://www.instagram.com/johndoe_skom/" target="_blank">@AnggaPutraJN</a></p> 
+                            </div>
+                            <h2 class="card-title text-center mt-3">Pengantin Pria</h2> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="konfirmasi-kehadiran"> 
+      <div class="container konfirmasi-container">
+          <h1>Konfirmasi Kehadiran</h1>
+
+          <form>
+              <div class="form-group">
+                  <label for="nama">Nama lengkap</label>
+                  <input type="text" class="form-control" id="nama" required>
+              </div>
+
+              <div class="form-group">
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="kehadiran" id="hadir" value="hadir" checked>
+                      <label class="form-check-label" for="hadir">   
+
+                          Iya, saya akan datang
+                      </label>
+                  </div>
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="kehadiran" id="tidakHadir" value="tidakHadir">
+                      <label class="form-check-label" for="tidakHadir">
+                          Maaf, Sepertinya tidak bisa
+                      </label>
+                  </div>
+              </div>
+
+              <button type="button" class="btn btn-primary btn-block" onclick="kirimRespon()">KIRIM RESPON</button>
+          </form>
+      </div>
+  </section>
+      
+    </section>
+<!--Diluat halaman Buka Undangan-->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function bukaUndangan() {
+            document.body.style.backgroundColor = '#e91e63'; 
+            document.querySelector('.hero').classList.add('fade-out'); 
+            setTimeout(function() {
+                document.querySelector('.hero').style.display = 'none';
+                document.getElementById('halamanUtama').style.display = 'block';
+                document.querySelector('.navbar').style.display = 'block';
+                setTimeout(function() {
+                    document.getElementById('halamanUtama').classList.add('fade-in');
+                }, 50); 
+            }, 500); 
+        }
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) { 
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Fungsi untuk menghitung mundur waktu
+        function countdown() {
+    const weddingDate = new Date("2024-09-15 10:00:00").getTime(); 
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000   
+ * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Perbaikan di sini
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+    if (distance < 0) {
+        clearInterval(x);   
+
+        document.getElementById("countdown-timer").innerHTML   
+ = "Hari Bahagia!";
+    }
+}
+
+// Update hitung mundur setiap detik
+let x = setInterval(countdown, 1000);
+
+
+    function kirimRespon() {
+            const nama = document.getElementById('nama').value;
+            const kehadiran = document.querySelector('input[name="kehadiran"]:checked').value;
+
+            let pesan = "Assalamualaikum, saya " + nama + ". ";
+            if (kehadiran === 'hadir') {
+                pesan += "Saya akan datang ke acara pernikahan Anda. Terima kasih atas undangannya!";
+            } else {
+                pesan += "Maaf, saya tidak bisa hadir ke acara pernikahan Anda. Semoga acara berjalan lancar dan bahagia selalu!";
+            }
+
+            const nomorWhatsApp = "6282286344446"; // Ganti dengan nomor WhatsApp tujuan
+            const urlWhatsApp = "https://wa.me/" + nomorWhatsApp + "?text=" + encodeURIComponent(pesan);
+
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
+</body>
+</html>
+
