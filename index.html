@@ -317,12 +317,16 @@ body {
         }
 
 /* CSS khusus map */
-        .map-container {
-    width: 100%;
-    max-width: 600px; /* Batasi lebar maksimum peta */
-    margin: 20px auto; /* Berikan margin atas dan bawah, serta pusatkan secara horizontal */
-}
+@media (max-width: 768px) { /* Sesuaikan breakpoint sesuai kebutuhan */
+  .map-container {
+    max-width: 100%; /* Lebar penuh pada layar kecil */
+    margin: 20px 0; /* Hapus margin horizontal agar tidak ada overflow */
+  }
 
+  .map-container iframe {
+    width: 100%; /* Pastikan iframe juga mengambil lebar penuh */
+  }
+}
 
 /* CSS khusus scrolling */
 .fade-in-scroll {
