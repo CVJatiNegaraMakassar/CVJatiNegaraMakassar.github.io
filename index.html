@@ -199,6 +199,7 @@ body {
 
 .mempelai .card {
     border: none; /* Hapus border bawaan card */
+    background-color: rgba(255, 255, 255, 0.8);  /* Warna latar belakang putih transparan */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan halus */
     transition: transform 0.2s ease; /* Transisi untuk efek hover */
 }
@@ -239,6 +240,13 @@ body {
 .mempelai .card-title {
     font-size: 1.5rem; /* Sesuaikan ukuran font judul sesuai kebutuhan */
 }
+
+
+
+.konfirmasi-container .form-check-input:checked {
+    background-color: #e91e63; /* Ganti dengan kode warna pink yang Anda inginkan */
+    border-color: #e91e63; /* Opsional: sesuaikan warna border juga */
+}
 .konfirmasi-kehadiran {
             padding: 50px 0;
         }
@@ -247,11 +255,17 @@ body {
             max-width: 500px;
             margin: 0 auto;
             padding: 30px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);  /* Warna latar belakang putih transparan */
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             color: #e91e63;
         }
+        .konfirmasi-container input.form-control {
+            background-color: #fbd2e0;
+  color: #e91e63;
+  border-color: #c2185b;
+  border-color: #e91e63;
+}
 
         .konfirmasi-container h1 {
             text-align: center;
@@ -287,7 +301,7 @@ body {
 
         .container-nikah, .container-resepsi {
             padding: 30px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.8);  /* Warna latar belakang putih transparan */
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             color: #000; /* Teks berwarna hitam */
@@ -346,8 +360,12 @@ body {
 
 /* CSS untuk section kirim kado */
 
+.section-kirim-kado .form-check-input:checked {
+    background-color: #e91e63; /* Ganti dengan kode warna pink yang Anda inginkan */
+    border-color: #e91e63; /* Opsional: sesuaikan warna border juga */
+}
 .section-kirim-kado {
-  background-color: #fff; /* Warna latar belakang putih untuk section */
+    background-color: rgba(255, 255, 255, 0.8);  /* Warna latar belakang putih transparan */
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -393,27 +411,50 @@ body {
 
 /* Basic styling for the gallery */
 .gallery {
-    padding: 20px; 
-    background-color: #fff; /* Warna latar belakang putih untuk section */
-    color: #e91e63;
+    padding: 50px 0;
+    background-image: url('path/to/background-image.jpg'); /* Latar belakang pemandangan */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
 }
 
-.container-gallery {
-    max-width: 1200px; 
-    margin: 0 auto;
+.gallery h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #fff; /* Warna putih */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.gallery-slider .swiper-slide img {
+.gallery-windows {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.window {
+    width: 200px; /* Sesuaikan ukuran jendela */
+    height: 250px;
+    margin: 10px;
+    overflow: hidden;
+    border: 5px solid #fff; /* Bingkai jendela */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.window img {
     width: 100%;
-    height: 500px; /* Tinggi gambar, sesuaikan sesuai kebutuhan */
-    object-fit: cover; /* Untuk memastikan gambar menutupi seluruh slide */
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-/* Sembunyikan navigasi dan pagination bawaan Swiper */
-.swiper-button-prev, .swiper-button-next, .swiper-pagination {
-    display: none;
+.window:hover img {
+    transform: scale(1.1);
 }
 
+
+
+
+/* Wedding date */
 #wedding-date {
     color: red; /* Atau warna lain yang kontras */
     font-size: 20px;
@@ -455,7 +496,6 @@ body {
         </div>
     </nav>
 
-
     <section class="hero">
         <div class="container">
            <h1>Angga & Fina</h1>
@@ -477,7 +517,8 @@ body {
 
         <div class="main-content container" id="ucapandandoa">
           <div class="ucapan-syukur">
-            <h2 class="text-center mb-3">Bismillahirrahmanirrahim</h2> <p>وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ Artinya: “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir.” (QS. Ar-Rum: 21)</p> 
+            <h2 class="text-center mb-3">Bismillahirrahmanirrahim</h2> <p>وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ 
+                <br/>Artinya: “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir.” (QS. Ar-Rum: 21)</p> 
         </div>
       </div>
 
@@ -560,7 +601,7 @@ body {
           <form>
               <div class="form-group">
                   <label for="nama">Nama lengkap</label>
-                  <input type="text" class="form-control" id="nama" required>
+                  <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Lengkap Anda" required>
               </div>
 
               <div class="form-group">
@@ -642,27 +683,43 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
 
   <!--Section Gallery-->
   <section class="gallery">
-    <h2 clas>Gallery</h2>
-         <div class="container-gallery">
-       
-           <div class="swiper gallery-slider"> 
-             <div class="swiper-wrapper">
-               <div class="swiper-slide">
-                 <img src="img/gallery/1.png" alt="Pasangan pengantin berjalan di padang rumput">
-               </div>
-               <div class="swiper-slide">
-                 <img src="img/gallery/2.png" alt="Dekorasi pernikahan dengan bunga dan pemandangan alam">
-               </div>
-               <div class="swiper-slide">
-                 <img src="img/gallery/3.png" alt="Pasangan pengantin duduk di padang rumput">
-               </div>
-               <div class="swiper-slide">
-                 <img src="img/gallery/4.png" alt="Pengantin wanita dalam gaun putih elegan">
-               </div>
-               </div>      
-           </div>      
-         </div>
-       </section>
+    <h2 class="text-center">Jendela Cinta</h2>
+    <div class="container-gallery">
+        <div class="gallery-windows">
+            <div class="window">
+                <img src="img/gallery/1.png" alt="Foto 1">
+            </div>
+            <div class="window">
+                <img src="img/gallery/2.png" alt="Foto 2">
+            </div>
+            <div class="window">
+                <img src="img/gallery/3.png" alt="Foto 3">
+            </div>
+            <div class="window">
+                <img src="img/gallery/4.png" alt="Foto 4">
+            </div>
+            <div class="window">
+                <img src="img/gallery/5.png" alt="Foto 5">
+            </div>
+            <div class="window">
+                <img src="img/gallery/6.png" alt="Foto 6">
+            </div>
+            <div class="window">
+                <img src="img/gallery/7.png" alt="Foto 7">
+            </div>
+            <div class="window">
+                <img src="img/gallery/8.png" alt="Foto 8">
+            </div>
+            <div class="window">
+                <img src="img/gallery/9.png" alt="Foto 9">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
        <audio id="myAudio" loop>
         <source src="music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -673,7 +730,9 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+ 
     <script>
 
 
