@@ -158,11 +158,15 @@ body {
             border-radius: 10px;
             color: #333; /* Warna teks gelap agar kontras */
         }
-
 /* CSS untuk section mempelai */
+.mempelai {
+    text-align: center; /* Mengatur teks agar berada di tengah */
+}
+
 .mempelai .row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Mengatur elemen agar berada di tengah secara horizontal */
     align-items: center; /* Untuk mengatur elemen agar sejajar secara vertikal di tengah */
 }
 
@@ -409,6 +413,16 @@ body {
 .swiper-button-prev, .swiper-button-next, .swiper-pagination {
     display: none;
 }
+
+#wedding-date {
+    color: red; /* Atau warna lain yang kontras */
+    font-size: 20px;
+}
+.countdown #wedding-date { /* Selektor lebih spesifik */
+  color: #e91e63;
+  font-size: 2.5rem;
+    font-size: 20px !important;
+}
     </style>
 </head>
 <body>
@@ -456,6 +470,7 @@ body {
             <div class="countdown">
                 <h2>Simpan Tanggalnya</h2>
                 <p id="countdown-timer"></p> 
+                <p id="wedding-date"></p>
             </div>
         </div>
 
@@ -504,94 +519,6 @@ body {
     </section>
     
 
-
-    <!--Section Kehadiran-->
-    <section class="konfirmasi-kehadiran" id="sectionkehadiran"> 
-      <div class="container konfirmasi-container">
-          <h1>Konfirmasi Kehadiran</h1>
-
-          <form>
-              <div class="form-group">
-                  <label for="nama">Nama lengkap</label>
-                  <input type="text" class="form-control" id="nama" required>
-              </div>
-
-              <div class="form-group">
-                  <div class="form-check">
-                      <input class="form-check-input" type="radio" name="kehadiran" id="hadir" value="hadir" checked>
-                      <label class="form-check-label" for="hadir">   
-
-                          Iya, saya akan datang
-                      </label>
-                  </div>
-                  <div class="form-check">
-                      <input class="form-check-input" type="radio" name="kehadiran" id="tidakHadir" value="tidakHadir">
-                      <label class="form-check-label" for="tidakHadir">
-                          Maaf, Sepertinya tidak bisa
-                      </label>
-                  </div>
-              </div>
-
-              <button type="button" class="btn btn-primary btn-block" onclick="kirimRespon()">KIRIM RESPON</button>
-          </form>
-      </div>
-  </section>
-      
-
-
-  <!--Section Alamat-->
-
-  <section class="section-nikah" id="sectiontanggaldantempat">
-    <div class="container">
-        <div class="container-nikah">
-            <h2>AKAD NIKAH</h2>
-            <p>Jumat, 15 Oktober 2024</p>
-            <p>pukul 09:00 WIB - selesai</p>
-            <p class="alamat">
-                <a href="https://maps.app.goo.gl/pcqtSP16mVvpdYSEA"   
-target="_blank">
-Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224   
-
-                </a>
-            </p>
-            
-<div class="container text-center">
-    <button class="btn-kalender" onclick="simpanKeKalender()">SIMPAN ACARA KE KALENDER</button>
-</div>
-        </div>
-    </div>
-</section>
-<div class="map-container">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.504610456196!2d119.40819597408239!3d-5.183051552299693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf1d83c0ed5af1%3A0xd3112f2d0287fd9!2sJl.%20Balang%20Baru%202%20No.56%2C%20Balang%20Baru%2C%20Kec.%20Tamalate%2C%20Kota%20Makassar%2C%20Sulawesi%20Selatan%2090224!5e0!3m2!1sid!2sid!4v1723544988665!5m2!1sid!2sid"
-      width="600" 
-      height="450" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-<section class="section-resepsi">
-    <div class="container">
-        <div class="container-resepsi">
-            <h2>RESEPSI</h2>
-            <p>Jumat, 15 September 2024</p>
-            <p>pukul 15:00 WIB - selesai</p>
-            <p class="alamat">
-                <a href="https://maps.app.goo.gl/kANjkCeWaSMr5vY2A" target="_blank">
-                    Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145
-                </a>
-            </p>
-            <div class="text-center mt-3"> <button class="btn-kalender" onclick="simpanResepsiKeKalender()">SIMPAN ACARA KE KALENDER</button> 
-            </div> 
-        </div>
-        </div>
-    </div>
-</section>
-
-
-
 <!--Section kado-->
 <div class="section-kirim-kado">   
 
@@ -624,6 +551,94 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
     </div>
   </div>
   
+
+    <!--Section Kehadiran-->
+    <section class="konfirmasi-kehadiran" id="sectionkehadiran"> 
+      <div class="container konfirmasi-container">
+          <h1>Konfirmasi Kehadiran</h1>
+
+          <form>
+              <div class="form-group">
+                  <label for="nama">Nama lengkap</label>
+                  <input type="text" class="form-control" id="nama" required>
+              </div>
+
+              <div class="form-group">
+                  <div class="form-check d-flex align-items-center mb-2">
+                      <input class="form-check-input " type="radio" name="kehadiran" id="hadir" value="hadir" checked>
+                      <label class="form-check-label" for="hadir">   
+
+                          Iya, saya akan datang
+                      </label>
+                  </div>
+                  <div class="form-check d-flex align-items-center mb-2">
+                      <input class="form-check-input" type="radio" name="kehadiran" id="tidakHadir" value="tidakHadir">
+                      <label class="form-check-label ml-5" for="tidakHadir">
+                           Maaf, Sepertinya tidak bisa
+                      </label>
+                  </div>
+              </div>
+
+              <button type="button" class="btn btn-primary btn-block" onclick="kirimRespon()">KIRIM RESPON</button>
+          </form>
+      </div>
+  </section>
+      
+
+
+  <!--Section Alamat-->
+
+  <section class="section-nikah" id="sectiontanggaldantempat">
+    <div class="container">
+        <div class="container-nikah">
+            <h2>AKAD NIKAH</h2>
+            <p>Selasa, 15 Oktober 2024</p>
+            <p>pukul 09:00 WIB - selesai</p>
+            <p class="alamat">
+                <a href="https://maps.app.goo.gl/pcqtSP16mVvpdYSEA"   
+target="_blank">
+Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224   
+
+                </a>
+            </p>
+            
+<div class="container text-center">
+    <button class="btn-kalender" onclick="simpanKeKalender()">SIMPAN ACARA KE KALENDER</button>
+</div>
+        </div>
+    </div>
+</section>
+<div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.504610456196!2d119.40819597408239!3d-5.183051552299693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf1d83c0ed5af1%3A0xd3112f2d0287fd9!2sJl.%20Balang%20Baru%202%20No.56%2C%20Balang%20Baru%2C%20Kec.%20Tamalate%2C%20Kota%20Makassar%2C%20Sulawesi%20Selatan%2090224!5e0!3m2!1sid!2sid!4v1723544988665!5m2!1sid!2sid"
+      width="600" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+<section class="section-resepsi">
+    <div class="container">
+        <div class="container-resepsi">
+            <h2>RESEPSI</h2>
+            <p>Minggu, 15 September 2024</p>
+            <p>pukul 15:00 WIB - selesai</p>
+            <p class="alamat">
+                <a href="https://maps.app.goo.gl/kANjkCeWaSMr5vY2A" target="_blank">
+                    Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145
+                </a>
+            </p>
+            <div class="text-center mt-3"> <button class="btn-kalender" onclick="simpanResepsiKeKalender()">SIMPAN ACARA KE KALENDER</button> 
+            </div> 
+        </div>
+        </div>
+    </div>
+</section>
+
+
+
 
   <!--Section Gallery-->
   <section class="gallery">
@@ -663,69 +678,80 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
 
 
 // Dapatkan elemen audio
+// Dapatkan elemen audio
 const audio = document.getElementById("myAudio");
 
-        function bukaUndangan() {
-            // Putar musik
-            audio.play();
-            document.body.style.backgroundColor = '#e91e63'; 
-            document.querySelector('.hero').classList.add('fade-out'); 
-            setTimeout(function() {
-                document.querySelector('.hero').style.display = 'none';
-                document.getElementById('halamanUtama').style.display = 'block';
-                document.querySelector('.navbar').style.display = 'block';
-                setTimeout(function() {
-                    document.getElementById('halamanUtama').classList.add('fade-in');
-                }, 50); 
-            }, 500); 
-        }
-
-        
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) { 
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+// Putar musik saat tombol "Buka Undangan" diklik
+function bukaUndangan() {
+    // Putar musik
+    audio.play();
+    document.body.style.backgroundColor = '#e91e63'; 
+    document.querySelector('.hero').classList.add('fade-out'); 
+    setTimeout(function() {
+        document.querySelector('.hero').style.display = 'none';
+        document.getElementById('halamanUtama').style.display = 'block';
+        document.querySelector('.navbar').style.display = 'block';
+        setTimeout(function() {
+            document.getElementById('halamanUtama').classList.add('fade-in');
+        }, 50); 
+    }, 500); 
+}
 
 // Hentikan musik jika pengguna menutup tab atau jendela browser
 window.addEventListener('beforeunload', function() {
     audio.pause();
 });
-        // Fungsi untuk menghitung mundur waktu
-        function countdown() {
-    const weddingDate = new Date("2024-09-15 10:00:00").getTime(); 
+
+// Fungsi untuk menghitung mundur waktu
+function countdown() {
+    const weddingDate = new Date("2024-10-15 10:00:00"); 
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Perbaikan di sini
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000   
+ * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
     if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown-timer").innerHTML = "Hari Bahagia!";
+        clearInterval(x);   
+
+        document.getElementById("countdown-timer").innerHTML   
+ = "Hari Bahagia!";
     }
+
+    // Format tanggal pernikahan
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = weddingDate.toLocaleDateString('id-ID', options);
+
+    // Tampilkan tanggal pernikahan, pastikan elemen ada sebelum diisi
+    const weddingDateElement = document.getElementById("wedding-date");
+    if (weddingDateElement) { 
+        weddingDateElement.innerHTML = formattedDate;
+    } else {
+        console.error("Elemen #wedding-date tidak ditemukan!"); 
+    }
+
+    
+    // Tampilkan tanggal pernikahan
+    document.getElementById("wedding-date").innerHTML = formattedDate;
 }
 
 // Update hitung mundur setiap detik
 let x = setInterval(countdown, 1000);
 
-
-
+// Fungsi untuk mengirim respons kehadiran ke WhatsApp
 function kirimRespon() {
     const nama = document.getElementById('nama').value;
     const kehadiran = document.querySelector('input[name="kehadiran"]:checked').value;
 
     // Validasi nama lengkap
     if (nama.trim() === '') {
-        alert("Maaf, nama anda harus di isi dulu"); // Tampilkan pesan error
-        return; // Hentikan eksekusi fungsi jika nama kosong
+        alert("Maaf, nama anda harus di isi dulu");
+        return;
     }
 
     let pesan = "Assalamualaikum, saya " + nama + ". ";
@@ -741,9 +767,8 @@ function kirimRespon() {
     window.open(urlWhatsApp, '_blank');
 }
 
-
-        //Simpan kalender
-        function simpanKeKalender() {
+// Fungsi untuk menyimpan acara akad nikah ke kalender
+function simpanKeKalender() {
     const akadNikah = {
         judul: 'Akad Nikah Angga & Fina',
         tanggalMulai: '20241015T090000',
@@ -752,19 +777,16 @@ function kirimRespon() {
         deskripsi: 'Akad nikah Angga & Fina'
     };
 
-
-    // Membuat tautan Google Calendar untuk akad nikah
     const urlAkadNikah = 'https://www.google.com/calendar/render?action=TEMPLATE' +
         '&text=' + encodeURIComponent(akadNikah.judul) +
         '&dates=' + akadNikah.tanggalMulai + '/' + akadNikah.tanggalSelesai +
         '&location=' + encodeURIComponent(akadNikah.lokasi) +
         '&details=' + encodeURIComponent(akadNikah.deskripsi);
 
-    // Membuka kedua tautan di tab baru
     window.open(urlAkadNikah, '_blank');
-    window.open(urlResepsi, '_blank');
 }
 
+// Fungsi untuk menyimpan acara resepsi ke kalender
 function simpanResepsiKeKalender() {
     const resepsi = {
         judul: 'Resepsi Pernikahan Angga & Fina',
@@ -774,19 +796,14 @@ function simpanResepsiKeKalender() {
         deskripsi: 'Resepsi pernikahan Angga & Fina'
     };
 
-    // Membuat tautan Google Calendar untuk resepsi
     const urlResepsi = 'https://www.google.com/calendar/render?action=TEMPLATE' +
         '&text=' + encodeURIComponent(resepsi.judul) +
         '&dates=' + resepsi.tanggalMulai + '/' + resepsi.tanggalSelesai +
         '&location=' + encodeURIComponent(resepsi.lokasi) +
         '&details=' + encodeURIComponent(resepsi.deskripsi);
 
-    // Membuka tautan di tab baru
     window.open(urlResepsi, '_blank');
 }
-
-    // Animasi SCrolling
-// ... (kode JavaScript lainnya)
 
 // Fungsi untuk menangani animasi fade-in saat scroll
 function handleScrollAnimation() {
@@ -796,61 +813,72 @@ function handleScrollAnimation() {
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
 
-        if (elementTop < windowHeight - 100) { // Munculkan elemen saat berada 100px dari bawah layar
-            element.classList.add('show');
+        if (elementTop < windowHeight   
+ - 100) {
+            element.classList.add('show');   
+
         }
     });
 }
 
 // Panggil fungsi saat halaman dimuat dan saat digulir
 window.addEventListener('scroll', handleScrollAnimation);
-handleScrollAnimation(); // Panggil sekali saat halaman dimuat untuk menangani elemen yang sudah terlihat
+handleScrollAnimation();
 
-//Section kado
+// Penanganan section "Kirim Hadiah"
 const containerKado = document.getElementById('container-kado');
 const rekeningInfo = document.getElementById('rekening-info');
 const alamatInfo = document.getElementById('alamat-info');
 const radioButtons = document.querySelectorAll('input[name="metode_pengiriman"]');
 
 radioButtons.forEach(radio => {
-  radio.addEventListener('change', () => {
-    if (radio.value === 'direct_transfer') {
-      containerKado.classList.add('active');
-      rekeningInfo.style.display = 'block';
-      alamatInfo.style.display = 'none';
-    } else if (radio.value === 'kirim_kado') {
-      containerKado.classList.add('active');
-      rekeningInfo.style.display = 'none';
-      alamatInfo.style.display = 'block';
-    } else {
-      containerKado.classList.remove('active');
-    }
-  });
+    radio.addEventListener('change', () => {
+        if (radio.value === 'direct_transfer') {
+            containerKado.classList.add('active');
+            rekeningInfo.style.display = 'block';
+            alamatInfo.style.display = 'none';
+        } else if (radio.value === 'kirim_kado') {
+            containerKado.classList.add('active');
+            rekeningInfo.style.display = 'none';
+            alamatInfo.style.display = 'block';
+        } else {
+            containerKado.classList.remove('active');
+        }
+    });
 });
 
+// Fungsi untuk menyalin teks ke clipboard
 function copyToClipboard(text) {
-  // Menggunakan Clipboard API
-  navigator.clipboard.writeText(text)
-    .then(() => {
-      alert('Norek Telah Disalin: ' + text); 
-    })
-    .catch(err => {
-      console.error('Gagal menyalin teks: ', err);
-      alert('Gagal menyalin teks. Silakan coba lagi atau salin secara manual.');
-    });
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            alert('Norek Telah Disalin: ' + text); 
+        })
+        .catch(err => {
+            console.error('Gagal menyalin teks: ', err);
+            alert('Gagal menyalin teks. Silakan coba lagi atau salin secara manual.');
+        });
 }
 
-
-
-//Slide Gallery
+// Inisialisasi Swiper untuk galeri foto
 const swiper = new Swiper('.gallery-slider', {
     slidesPerView: 1, 
     spaceBetween: 20, 
     loop: true,
     autoplay: {
-        delay: 3000, // Waktu jeda antar slide (dalam milidetik)
+        delay: 3000, 
         disableOnInteraction: false,
     },
+});
+
+// Tambahkan event listener untuk scroll pada window
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) { 
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');   
+
+    }
 });
 
     </script>
