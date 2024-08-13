@@ -77,6 +77,11 @@ body {
             font-size: 1.2rem;
             cursor: pointer;
         }
+.btn-buka-undangan:hover {
+  background-color: #c2185b; /* Warna pink yang lebih gelap saat hover */
+  transform: translateY(-2px); /* Efek hover: naik sedikit */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Bayangan lebih tegas saat hover */
+}
 
         /* CSS untuk halaman utama */
         .main {
@@ -434,6 +439,10 @@ body {
 
 
     <section class="hero">
+        <audio id="myAudio" loop>
+            <source src="music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
         <div class="container">
            <h1>Angga & Fina</h1>
             <button class="btn-buka-undangan" onclick="bukaUndangan()">Buka Undangan</button>
@@ -618,7 +627,7 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
 
   <!--Section Gallery-->
   <section class="gallery">
-    <h2 clas>Kirim Hadiah</h2>
+    <h2 clas>Gallery</h2>
          <div class="container-gallery">
        
            <div class="swiper gallery-slider"> 
@@ -829,6 +838,22 @@ const swiper = new Swiper('.gallery-slider', {
     },
 });
 
+
+// Dapatkan elemen audio
+const audio = document.getElementById("myAudio");
+
+// Putar musik saat tombol "Buka Undangan" diklik
+function bukaUndangan() {
+    // ... (kode yang sudah ada untuk membuka undangan)
+
+    // Putar musik
+    audio.play();
+}
+
+// Hentikan musik jika pengguna menutup tab atau jendela browser
+window.addEventListener('beforeunload', function() {
+    audio.pause();
+});
     </script>
 </body>
 </html>
