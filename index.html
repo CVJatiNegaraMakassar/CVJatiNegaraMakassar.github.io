@@ -325,16 +325,16 @@ body {
                         <a class="nav-link" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cerita Kita</a>
+                        <a class="nav-link" href="#ucapandandoa">Ucapan & Doa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Acara</a>
+                        <a class="nav-link" href="#profilepengantinnya">Profile Pengantin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Galeri</a>
+                        <a class="nav-link" href="#sectionkehadiran">Kehadiran</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Ucapan & Doa</a>
+                        <a class="nav-link" href="#sectiontanggaldantempat">Tanggal Dan Tempat</a>
                     </li>
                 </ul>
             </div>
@@ -358,14 +358,14 @@ body {
                 <p id="countdown-timer"></p> 
             </div>
         </div>
-        <div class="main-content container">
+        <div class="main-content container" id="ucapandandoa">
           <div class="ucapan-syukur">
             <h2 class="text-center mb-3">Bismillahirrahmanirrahim</h2> <p>Dengan mengucap syukur kepada Allah SWT, kami berbahagia mengundang Anda untuk hadir pada acara pernikahan kami.</p> 
         </div>
       </div>
 
 <!--Section Profile-->
-      <section class="mempelai">
+      <section class="mempelai" id="profilepengantinnya">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -403,7 +403,7 @@ body {
 
 
     <!--Section Kehadiran-->
-    <section class="konfirmasi-kehadiran"> 
+    <section class="konfirmasi-kehadiran" id="sectionkehadiran"> 
       <div class="container konfirmasi-container">
           <h1>Konfirmasi Kehadiran</h1>
 
@@ -435,19 +435,23 @@ body {
   </section>
       
 
-  <section class="section-nikah">
+  <section class="section-nikah" id="sectiontanggaldantempat">
     <div class="container">
         <div class="container-nikah">
             <h2>AKAD NIKAH</h2>
-            <p>Jumat, 28 April 2023</p>
+            <p>Jumat, 15 Oktober 2024</p>
             <p>pukul 09:00 WIB - selesai</p>
             <p class="alamat">
-                <a href="https://maps.google.com/?q=Plataran Menteng, Jalan HOS. Cokroaminoto, RT.6/RW.4, Gondangdia, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta, Indonesia"   
+                <a href="https://maps.app.goo.gl/pcqtSP16mVvpdYSEA"   
 target="_blank">
-                    Plataran Menteng, Jalan HOS. Cokroaminoto, RT.6/RW.4, Gondangdia, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta, Indonesia   
+Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224   
 
                 </a>
             </p>
+            
+<div class="container text-center">
+    <button class="btn-kalender" onclick="simpanKeKalender()">SIMPAN ACARA KE KALENDER</button>
+</div>
         </div>
     </div>
 </section>
@@ -456,20 +460,17 @@ target="_blank">
     <div class="container">
         <div class="container-resepsi">
             <h2>RESEPSI</h2>
-            <p>Jumat, 15 Maret 2024</p>
+            <p>Jumat, 15 September 2024</p>
             <p>pukul 15:00 WIB - selesai</p>
             <p class="alamat">
-                <a href="https://www.google.com/maps/search/?api=1&query=DoubleTree+by+Hilton+Jakarta+-+Diponegoro+Jakarta+Pusat" target="_blank">
-                    DoubleTree by Hilton Jakarta - Diponegoro Jakarta Pusat
+                <a href="https://maps.app.goo.gl/kANjkCeWaSMr5vY2A" target="_blank">
+                    Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145
                 </a>
             </p>
         </div>
     </div>
 </section>
 
-<div class="container text-center">
-    <button class="btn-kalender" onclick="simpanKeKalender()">SIMPAN ACARA KE KALENDER</button>
-</div>
 
 
     </section>
@@ -549,17 +550,17 @@ let x = setInterval(countdown, 1000);
         function simpanKeKalender() {
     const akadNikah = {
         judul: 'Akad Nikah Angga & Fina',
-        tanggalMulai: '20230428T090000',
-        tanggalSelesai: '20230428T120000',
-        lokasi: 'Plataran Menteng, Jalan HOS. Cokroaminoto, RT.6/RW.4, Gondangdia, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta, Indonesia',
+        tanggalMulai: '20241015T090000',
+        tanggalSelesai: '20241015T120000',
+        lokasi: 'Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224',
         deskripsi: 'Akad nikah Angga & Fina'
     };
 
     const resepsi = {
         judul: 'Resepsi Pernikahan Angga & Fina',
-        tanggalMulai: '20240315T150000',
-        tanggalSelesai: '20240315T180000',
-        lokasi: 'DoubleTree by Hilton Jakarta - Diponegoro Jakarta Pusat',
+        tanggalMulai: '20240915T090000',
+        tanggalSelesai: '20240915T120000',
+        lokasi: 'Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145',
         deskripsi: 'Resepsi pernikahan Angga & Fina'
     };
 
