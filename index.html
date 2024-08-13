@@ -329,6 +329,50 @@ body {
     transform: translateY(0);
 }
 
+/* CSS untuk section kirim kado */
+
+.section-kirim-kado {
+  background-color: #fff; /* Warna latar belakang putih untuk section */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 600px;
+  color: #e91e63;
+}
+
+.container-kado {
+  display: none;
+  margin-top: 20px;
+}
+
+.container-kado.active {
+  display: block;
+}
+
+.rekening-info, .alamat-info {
+  margin-top: 10px;
+}
+
+.copy-button {
+  background-color: #e91e63; /* Pink */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display:   
+ inline-block;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.section-kirim-kado > label { /* Target label radio button */
+  display: block; /* Setiap label menjadi blok sendiri */
+  text-align: left; /* Teks label rata kiri */
+  margin-left: 20px; /* Beri sedikit jarak dari kiri */
+}
     </style>
 </head>
 <body>
@@ -509,6 +553,39 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
 
 
 
+<!--Section kado-->
+<div class="section-kirim-kado">   
+
+    <h2 clas>Kirim Hadiah</h2>
+  
+  
+    <div class="form-check d-flex align-items-center mb-2"> 
+        <input type="radio" class="form-check-input" id="direct_transfer" name="metode_pengiriman" value="direct_transfer">
+        <label class="form-check-label ms-2" for="direct_transfer">Direct Transfer</label> 
+      </div>
+    
+      <div class="form-check d-flex align-items-center">
+        <input type="radio" class="form-check-input" id="kirim_kado" name="metode_pengiriman" value="kirim_kado">
+        <label class="form-check-label ms-2" for="kirim_kado">Kirim Kado</label>
+      </div>
+  
+    <div id="container-kado" class="container-kado">
+      <div id="rekening-info" class="rekening-info">
+        <p>Kamu bisa transfer ke rekening di bawah ini:</p>
+        <p>Bank Mandiri: 1740004968574 <button class="copy-button" onclick="copyToClipboard('1740004968574')">Salin</button> a/n A.P Jati Negara M.A</p>
+        <p>Bank BNI: 1211254450 <button class="copy-button" onclick="copyToClipboard('1211254450')">Salin</button> a/n Alfina Febrianty</p>
+      </div>
+  
+      <div id="alamat-info" class="alamat-info">
+        <p>Alamat pengantin Pria:</p>
+        <p>[Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224]</p>
+        <p>Alamat pengantin Wanita:</p>
+        <p>[Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145]</p>
+      </div>
+    </div>
+  </div>
+  
+
     </section>
 <!--Diluat halaman Buka Undangan-->
 
@@ -545,23 +622,21 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
     const distance = weddingDate - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000   
- * 60 * 60));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); // Perbaikan di sini
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
     document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
     if (distance < 0) {
-        clearInterval(x);   
-
-        document.getElementById("countdown-timer").innerHTML   
- = "Hari Bahagia!";
+        clearInterval(x);
+        document.getElementById("countdown-timer").innerHTML = "Hari Bahagia!";
     }
 }
 
 // Update hitung mundur setiap detik
 let x = setInterval(countdown, 1000);
+
 
 
 function kirimRespon() {
@@ -652,7 +727,39 @@ function handleScrollAnimation() {
 window.addEventListener('scroll', handleScrollAnimation);
 handleScrollAnimation(); // Panggil sekali saat halaman dimuat untuk menangani elemen yang sudah terlihat
 
+//Section kado
+const containerKado = document.getElementById('container-kado');
+const rekeningInfo = document.getElementById('rekening-info');
+const alamatInfo = document.getElementById('alamat-info');
+const radioButtons = document.querySelectorAll('input[name="metode_pengiriman"]');
 
+radioButtons.forEach(radio => {
+  radio.addEventListener('change', () => {
+    if (radio.value === 'direct_transfer') {
+      containerKado.classList.add('active');
+      rekeningInfo.style.display = 'block';
+      alamatInfo.style.display = 'none';
+    } else if (radio.value === 'kirim_kado') {
+      containerKado.classList.add('active');
+      rekeningInfo.style.display = 'none';
+      alamatInfo.style.display = 'block';
+    } else {
+      containerKado.classList.remove('active');
+    }
+  });
+});
+
+function copyToClipboard(text) {
+  // Menggunakan Clipboard API
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      alert('Norek Telah Disalin: ' + text); 
+    })
+    .catch(err => {
+      console.error('Gagal menyalin teks: ', err);
+      alert('Gagal menyalin teks. Silakan coba lagi atau salin secara manual.');
+    });
+}
 
     </script>
 </body>
