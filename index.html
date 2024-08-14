@@ -549,14 +549,18 @@ body {
     height: 100%;
     object-fit: contain;
 }
-
+.lightbox .swiper-button-prev, 
+.lightbox .swiper-button-next {
+    /* Gaya untuk tombol navigasi slider di dalam lightbox */
+    color: white; /* Atau warna lain yang sesuai */
+}
 .close {
     color: white;
     position: absolute;
     top: 10px;
     right: 25px;
     font-size: 35px;
-    font-weight: bold;
+    font-weight: bold;    z-index: 5; /* Atau nilai yang lebih tinggi dari elemen lain di lightbox */
 }
 
 .close:hover,
@@ -846,19 +850,29 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
     <div class="container-gallery">
         <div class="gallery-windows">
             <div class="window">
-                <img src="img/gallery/1.png" alt="Foto 1" onclick="openLightbox('img/gallery/1.png')">
+                <img src="img/gallery/1.png" alt="Foto 1" onclick="openLightbox(0)"> 
             </div>
             <div class="window">
-                <img src="img/gallery/2.png" alt="Foto 2" onclick="openLightbox('img/gallery/2.png')">
-            </div>
+                <img src="img/gallery/2.png" alt="Foto 2" onclick="openLightbox(1)"> 
             </div>
     </div>
 </section>
 
 <div class="lightbox">
     <div class="lightbox-content">
-        <img src="" alt=""> 
-        <span class="close" onclick="closeLightbox()">&times;</span>
+        <div class="swiper lightbox-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="img/gallery/1.png" alt="Foto 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/gallery/2.png" alt="Foto 2">
+                </div>
+                </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <span class="close" onclick="closeLightbox()">&times;</span> 
+        </div>
     </div>
 </div>
 
@@ -1203,30 +1217,51 @@ window.addEventListener('scroll', function() {
 
 
 //gallery
-const windows = document.querySelectorAll('.window');
-
-windows.forEach(window => {
-    const overlay = window.querySelector('.overlay');
-    const imageSrc = window.dataset.image;
-
-    window.addEventListener('mouseover', () => {
-        const overlayImage = overlay.querySelector('img');
-        if (!overlayImage) {
-            const newImage = document.createElement('img');
-            newImage.src = imageSrc;
-            overlay.appendChild(newImage);
-        }
-    });
+// Inisialisasi Swiper untuk galeri foto (di luar lightbox)
+const gallerySwiper = new Swiper('.gallery-slider', {
+    slidesPerView: 3, // Jumlah slide yang terlihat pada satu waktu (sesuaikan sesuai kebutuhan)
+    spaceBetween: 30, // Jarak antar slide
+    loop: true, // Mengaktifkan loop (slide terakhir akan kembali ke slide pertama)
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
 });
 
-function openLightbox(imageSrc) {
-    document.querySelector('.lightbox img').src = imageSrc;
+// Inisialisasi Swiper untuk lightbox (jalankan hanya sekali)
+let lightboxSwiper; 
+function initLightboxSwiper() {
+    lightboxSwiper = new Swiper('.lightbox-slider', {
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+}
+
+// Panggil fungsi inisialisasi saat halaman dimuat
+initLightboxSwiper();
+
+function openLightbox(index) {
+    lightboxSwiper.slideTo(index); // Atur slide aktif
+
+    // Dapatkan semua slide di dalam lightbox
+    const slides = document.querySelectorAll('.lightbox-slider .swiper-slide');
+
+    // Dapatkan path gambar dari slide yang aktif
+    const imageSrc = slides[index].querySelector('img').src;
+
+    // Atur src gambar di dalam lightbox
+    document.querySelector('.lightbox-content img').src = imageSrc;
+
     document.querySelector('.lightbox').style.display = 'block';
 }
 
 function closeLightbox() {
     document.querySelector('.lightbox').style.display = 'none';
 }
+
     </script>
 </body>
 </html>
