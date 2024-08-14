@@ -16,6 +16,7 @@
 /* CSS kustom untuk navbar, hero, dan halaman utama */
 body {
     background-color: #ea1e63; /* Warna pink yang lebih gelap saat hover */
+    font-family: 'Open Sans', sans-serif;
 }
 
 .navbar {
@@ -190,6 +191,7 @@ body {
     max-width: 500px; /* Batasi lebar maksimum agar tidak terlalu besar pada layar lebar */
     padding: 30px; /* Tambahkan sedikit padding untuk ruang lebih */
     font-size: 1.5rem; /* Perbesar ukuran font secara keseluruhan */
+    transition: background-color 2s ease; /* Transisi warna latar belakang */
 }
 
 
@@ -204,6 +206,15 @@ body {
             color: #e91e63;/* Ubah warna teks menjadi pink agak terang */
        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Ubah warna bayangan menjadi lebih terang */
 }
+.countdown-digit { /* Targetkan setiap digit pada countdown */
+    transition: transform 0.3s ease; /* Transisi halus untuk perubahan ukuran */
+}
+
+.countdown-digit.animate { /* Kelas untuk digit yang sedang beranimasi */
+    transform: scale(0.9); /* Mengecil sedikit */
+}
+
+
 
         .main-content {
             padding: 50px 0;
@@ -230,7 +241,7 @@ body {
             background-color: rgba(255, 255, 255, 0.8);  /* Warna latar belakang putih transparan */
             padding: 20px;
             border-radius: 10px;
-            color: #333; /* Warna teks gelap agar kontras */
+            color: #e91e63;
         }
 /* CSS untuk section mempelai */
 .mempelai {
@@ -276,8 +287,17 @@ body {
     background-color: rgba(255, 255, 255, 0.8);  /* Warna latar belakang putih transparan */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan halus */
     transition: transform 0.2s ease; /* Transisi untuk efek hover */
+    color: #e91e63
+}
+.mempelai .card a { 
+    color: #e91e63; /* Warna pink untuk teks link */
+    text-decoration: none
+    
 }
 
+.mempelai .card a:hover {
+    color: #c2185b; /* Warna pink yang lebih gelap saat hover (opsional) */
+}
 .mempelai .card:hover {
     transform: translateY(-5px); /* Efek hover: naik sedikit */
 }
@@ -333,6 +353,7 @@ body {
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             color: #e91e63;
+            margin-bottom: 15px; /* Tambahkan margin bawah untuk jarak antar elemen */
         }
         .konfirmasi-container input.form-control {
             background-color: #fbd2e0;
@@ -353,8 +374,14 @@ body {
 
         .konfirmasi-container .form-check {
             margin-bottom: 10px;
-            color: #e91e63;
+    color: #e91e63;
+    display: flex; /* Gunakan flexbox untuk mengatur tata letak */
+    align-items: center; 
         }
+
+        .konfirmasi-container .form-check-label {
+    margin-left: 10px; /* Beri jarak antara checkbox dan label */
+}
 
         .konfirmasi-container .btn-primary {
             background-color: #e91e63;
@@ -378,7 +405,7 @@ body {
             background-color: rgba(255, 255, 255, 0.8);  /* Warna latar belakang putih transparan */
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            color: #000; /* Teks berwarna hitam */
+            color: #e91e63;
         }
 
         .container h2 {
@@ -486,16 +513,14 @@ body {
 /* Basic styling for the gallery */
 .gallery {
     padding: 50px 0;
-    background-image: url('path/to/background-image.jpg'); /* Latar belakang pemandangan */
-    background-size: cover;
-    background-position: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Latar belakang putih transparan */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan halus */
     text-align: center;
 }
-
 .gallery h2 {
     font-size: 2.5rem;
     margin-bottom: 30px;
-    color: #fff; /* Warna putih */
+    color: #e91e63;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -577,17 +602,19 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Latar belakang gelap transparan */
     opacity: 0; /* Awalnya tersembunyi */
     transition: opacity 0.3s ease; /* Transisi halus */
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
+    max-height: 250px
 }
 
 .window:hover .overlay {
     opacity: 1; /* Muncul saat hover */
+    pointer-events: auto; /* Mengizinkan event mouse saat di-hover */
 }
 
 .window .overlay img {
@@ -603,9 +630,8 @@ body {
     font-size: 20px;
 }
 .countdown #wedding-date { /* Selektor lebih spesifik */
-  color: #e91e63;
-  font-size: 2.5rem;
-    font-size: 20px !important;
+    color: #e91e63;
+    font-size: 20px; 
 }
 
 
@@ -638,7 +664,10 @@ body {
                         <a class="nav-link" href="#ucapandandoa">Ucapan & Doa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#profilepengantinnya">Profile Pengantin</a>
+                        <a class="nav-link" href="#gallerynya">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profilepengantinnya">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#sectionkehadiran">Kehadiran</a>
@@ -651,46 +680,49 @@ body {
         </div>
     </nav>
 
-<nav class="navbar navbar-expand-lg">
-        </nav>
 
-    <section class="hero">
-        <div class="container">
-            <div class="nama-mempelai">
-                <h1>Angga & Fina</h1>
-            </div>
-            <button class="btn-buka-undangan" onclick="bukaUndangan()">Buka Undangan</button>
+  <header class="hero">
+    <div class="container">
+        <div class="nama-mempelai">
+            <h1>Angga & Fina</h1>
         </div>
-        <div id="particles-js"></div> 
-    </section>
+        <button class="btn-buka-undangan" onclick="bukaUndangan()">Buka Undangan</button>
+    </div>
+    <div id="particles-js"></div> 
+</header>
 <!--Tombol Undangan End-->
 
 
-    <section class="main" id="halamanUtama"> 
-        <div class="main-header">
-            <div class="countdown">
-                <h2>Simpan Tanggalnya</h2>
-                <p id="countdown-timer"></p> 
-                <p id="wedding-date"></p>
-            </div>
+<main class="main" id="halamanUtama">
+    <section class="main-header">
+        <div class="countdown">
+            <h2>Simpan Tanggalnya</h2>
+            <p id="countdown-timer">
+                <span class="countdown-digit" id="days">00</span>d 
+                <span class="countdown-digit" id="hours">00</span>h 
+                <span class="countdown-digit" id="minutes">00</span>m 
+                <span class="countdown-digit" id="seconds">00</span>s 
+            </p> 
+            <p id="wedding-date"></p>
         </div>
+    </section>
 
-
-        <div class="main-content container" id="ucapandandoa">
-          <div class="ucapan-syukur">
-            <h2 class="text-center mb-3">Bismillahirrahmanirrahim</h2> <p>وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ 
-                <br/>Artinya: “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir.” (QS. Ar-Rum: 21)</p> 
+    <section class="main-content container" id="ucapandandoa">
+        <div class="ucapan-syukur">
+            <h2 class="text-center">Bismillahirrahmanirrahim</h2>
+            <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra/putri kami.</p>
+            <p>Acara pernikahan ini akan menjadi momen sakral dimana dua insan yang saling mencintai akan mengikat janji suci dalam ikatan pernikahan yang diberkahi oleh Allah SWT.</p>
+            <p>Kehadiran Bapak/Ibu/Saudara/i akan menjadi kebahagiaan dan kehormatan bagi kami. Semoga doa restu yang diberikan akan menjadi awal yang baik bagi kehidupan baru kedua mempelai.</p>
+            <p>Atas perhatian dan kehadiran Bapak/Ibu/Saudara/i, kami ucapkan terima kasih.</p>
         </div>
-      </div>
+    </section>
 
-
-<!--Section Profile-->
-      <section class="mempelai" id="profilepengantinnya">
+    <section class="mempelai" id="profilepengantinnya">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card  mr-5">
-                        <img src="img/story/2.png" class="card-img-top" alt="Foto Pengantin Wanita">
+                    <div class="card mr-5">
+                        <img src="img/story/2.png" class="card-img-top" alt="Foto Alfina Febrianty, pengantin wanita">
                         <div class="card-body">
                             <div class="biodata">
                                 <h3>Alfina Febrianty</h3>
@@ -703,7 +735,7 @@ body {
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card  mr-5">
+                    <div class="card mr-5">
                         <img src="img/story/1.png" class="card-img-top" alt="Foto Pengantin Pria">
                         <div class="card-body">
                             <div class="biodata">
@@ -719,143 +751,138 @@ body {
             </div>
         </div>
     </section>
-    
 
-<!--Section kado-->
-<div class="section-kirim-kado">   
-
-    <h2 clas>Kirim Hadiah</h2>
-  
-  
-    <div class="form-check d-flex align-items-center mb-2"> 
-        <input type="radio" class="form-check-input" id="direct_transfer" name="metode_pengiriman" value="direct_transfer">
-        <label class="form-check-label ms-2" for="direct_transfer">Direct Transfer</label> 
-      </div>
-    
-      <div class="form-check d-flex align-items-center">
-        <input type="radio" class="form-check-input" id="kirim_kado" name="metode_pengiriman" value="kirim_kado">
-        <label class="form-check-label ms-2" for="kirim_kado">Kirim Kado</label>
-      </div>
-  
-    <div id="container-kado" class="container-kado">
-      <div id="rekening-info" class="rekening-info">
-        <p>Kamu bisa transfer ke rekening di bawah ini:</p>
-        <p>Bank Mandiri: 1740004968574 <button class="copy-button" onclick="copyToClipboard('1740004968574')">Salin</button> a/n A.P Jati Negara M.A</p>
-        <p>Bank BNI: 1211254450 <button class="copy-button" onclick="copyToClipboard('1211254450')">Salin</button> a/n Alfina Febrianty</p>
-      </div>
-  
-      <div id="alamat-info" class="alamat-info">
-        <p>Alamat pengantin Pria:</p>
-        <p>[Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224]</p>
-        <p>Alamat pengantin Wanita:</p>
-        <p>[Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145]</p>
-      </div>
-    </div>
-  </div>
-  
-
-    <!--Section Kehadiran-->
     <section class="konfirmasi-kehadiran" id="sectionkehadiran"> 
-      <div class="container konfirmasi-container">
-          <h1>Konfirmasi Kehadiran</h1>
+        <div class="container konfirmasi-container">
+            <h1>Konfirmasi Kehadiran</h1>
+            <form>
+                <div class="form-group">
+                    <label for="nama">Nama lengkap:</label>
+                    <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Lengkap Anda" required>
+                    <div id="namaError" class="alert alert-danger" style="display: none;">
+                        Maaf, nama anda harus di isi dulu
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check d-flex align-items-center mb-2">
+                        <input class="form-check-input " type="radio" name="kehadiran" id="hadir" value="hadir" checked>
+                        <label class="form-check-label" for="hadir"> 
+                            Iya, saya akan datang
+                        </label>
+                    </div>
+                    <div class="form-check d-flex align-items-center mb-2">
+                        <input class="form-check-input" type="radio" name="kehadiran" id="tidakHadir" value="tidakHadir">
+                        <label class="form-check-label ml-5" for="tidakHadir">
+                            Maaf, Sepertinya tidak bisa
+                        </label>
+                    </div>
+                </div>                
+                <button type="button" class="btn btn-primary btn-block" onclick="kirimRespon()">KIRIM RESPON</button>
+            </form>
+        </div>
+    </section>
 
-          <form>
-            <div class="form-group">
-                <label for="nama">Nama lengkap</label>
-                <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Lengkap Anda" required>
-                <div id="namaError" class="alert alert-danger" style="display: none;">
-                    Maaf, nama anda harus di isi dulu
+    <section class="section-nikah" id="sectiontanggaldantempat">
+        <div class="container">
+            <div class="container-nikah">
+                <h2>AKAD NIKAH</h2>
+                <p>Selasa, 15 Oktober 2024</p>
+                <p>pukul 09:00 WIB - selesai</p>
+                <p class="alamat">
+                    <a href="https://maps.app.goo.gl/pcqtSP16mVvpdYSEA" target="_blank">
+                        Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224 
+                    </a>
+                </p>
+                <div class="container text-center">
+                    <button class="btn-kalender" onclick="simpanKeKalender()">SIMPAN ACARA KE KALENDER</button>
                 </div>
             </div>
-              <div class="form-group">
-                  <div class="form-check d-flex align-items-center mb-2">
-                      <input class="form-check-input " type="radio" name="kehadiran" id="hadir" value="hadir" checked>
-                      <label class="form-check-label" for="hadir">   
-
-                          Iya, saya akan datang
-                      </label>
-                  </div>
-                  <div class="form-check d-flex align-items-center mb-2">
-                      <input class="form-check-input" type="radio" name="kehadiran" id="tidakHadir" value="tidakHadir">
-                      <label class="form-check-label ml-5" for="tidakHadir">
-                           Maaf, Sepertinya tidak bisa
-                      </label>
-                  </div>
-              </div>
-
-              <button type="button" class="btn btn-primary btn-block" onclick="kirimRespon()">KIRIM RESPON</button>
-          </form>
-      </div>
-  </section>
-      
-
-
-  <!--Section Alamat-->
-
-  <section class="section-nikah" id="sectiontanggaldantempat">
-    <div class="container">
-        <div class="container-nikah">
-            <h2>AKAD NIKAH</h2>
-            <p>Selasa, 15 Oktober 2024</p>
-            <p>pukul 09:00 WIB - selesai</p>
-            <p class="alamat">
-                <a href="https://maps.app.goo.gl/pcqtSP16mVvpdYSEA"   
-target="_blank">
-Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224   
-
-                </a>
-            </p>
-            
-<div class="container text-center">
-    <button class="btn-kalender" onclick="simpanKeKalender()">SIMPAN ACARA KE KALENDER</button>
-</div>
         </div>
+    </section>
+
+    <div class="map-container">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.504610456196!2d119.40819597408239!3d-5.183051552299693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf1d83c0ed5af1%3A0xd3112f2d0287fd9!2sJl.%20Balang%20Baru%202%20No.56%2C%20Balang%20Baru%2C%20Kec.%20Tamalate%2C%20Kota%20Makassar%2C%20Sulawesi%20Selatan%2090224!5e0!3m2!1sid!2sid!4v1723544988665!5m2!1sid!2sid"
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </div>
-</section>
-<div class="map-container">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.504610456196!2d119.40819597408239!3d-5.183051552299693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf1d83c0ed5af1%3A0xd3112f2d0287fd9!2sJl.%20Balang%20Baru%202%20No.56%2C%20Balang%20Baru%2C%20Kec.%20Tamalate%2C%20Kota%20Makassar%2C%20Sulawesi%20Selatan%2090224!5e0!3m2!1sid!2sid!4v1723544988665!5m2!1sid!2sid"
-      width="600" 
-      height="450" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy" 
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
-<section class="section-resepsi">
-    <div class="container">
-        <div class="container-resepsi">
-            <h2>RESEPSI</h2>
-            <p>Minggu, 15 September 2024</p>
-            <p>pukul 15:00 WIB - selesai</p>
-            <p class="alamat">
-                <a href="https://maps.app.goo.gl/kANjkCeWaSMr5vY2A" target="_blank">
-                    Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145
-                </a>
-            </p>
-            <div class="text-center mt-3"> <button class="btn-kalender" onclick="simpanResepsiKeKalender()">SIMPAN ACARA KE KALENDER</button> 
-            </div> 
+
+    <section class="section-resepsi">
+        <div class="container">
+            <div class="container-resepsi">
+                <h2>RESEPSI</h2>
+                <p>Selasa, 22 Oktober 2024</p> <p>pukul 15:00 WIB - selesai</p>
+                <p class="alamat">
+                    <a href="https://maps.app.goo.gl/kANjkCeWaSMr5vY2A" target="_blank">
+                        Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145
+                    </a>
+                </p>
+                <div class="text-center mt-3"> 
+                    <button class="btn-kalender" onclick="simpanResepsiKeKalender()">SIMPAN ACARA KE KALENDER</button> 
+                </div> 
+            </div>
         </div>
-        </div>
-    </div>
-</section>
+    </section>
 
 
 
 
   <!--Section Gallery-->
-  <section class="gallery">
+  <section class="gallery" id="gallerynya">
     <h2 class="text-center">Jendela Cinta</h2>
     <div class="container-gallery">
         <div class="gallery-windows">
-<div class="window">
-    <img src="img/gallery/1.png" alt="Foto 1" data-index="0" onclick="openLightbox(event)"> 
-</div>
-<div class="window">
-    <img src="img/gallery/2.png" alt="Foto 2" data-index="1" onclick="openLightbox(event)"> 
-</div>
+            <div class="window">
+                <img src="img/gallery/1.png" alt="Foto 1" data-index="0" onclick="openLightbox(0)"> 
+                <div class="overlay">
+                    <img src="img/gallery/1.png" alt="Foto 1"> </div>
             </div>
+            <div class="window">
+                <img src="img/gallery/2.png" alt="Foto 2" data-index="1" onclick="openLightbox(1)"> 
+                <div class="overlay">
+                    <img src="img/gallery/2.png" alt="Foto 2"> </div>
+            </div>
+            <div class="window">
+                <img src="img/gallery/3.png" alt="Foto 3" data-index="2" onclick="openLightbox(2)"> 
+                <div class="overlay">
+                    <img src="img/gallery/3.png" alt="Foto 3"> </div>
+            </div>
+            <div class="window">
+                <img src="img/gallery/4.png" alt="Foto 4" data-index="3" onclick="openLightbox(3)"> 
+                <div class="overlay">
+                    <img src="img/gallery/4.png" alt="Foto 4"> </div>
+            </div>
+            <div class="window">
+                <img src="img/gallery/5.png" alt="Foto 5" data-index="4" onclick="openLightbox(4)"> 
+                <div class="overlay">
+                    <img src="img/gallery/5.png" alt="Foto 5"> </div>
+            </div>
+            <div class="window">
+                <img src="img/gallery/6.png" alt="Foto 6" data-index="5" onclick="openLightbox(5)"> 
+                <div class="overlay">
+                    <img src="img/gallery/6.png" alt="Foto 6"> </div>
+            </div>
+            <div class="window">
+                <img src="img/gallery/7.png" alt="Foto 7" data-index="6" onclick="openLightbox(6)"> 
+                <div class="overlay">
+                    <img src="img/gallery/7.png" alt="Foto 7"> </div>
+            </div>
+            <div class="window">
+                <img src="img/gallery/8.png" alt="Foto 8" data-index="7" onclick="openLightbox(7)"> 
+                <div class="overlay">
+                    <img src="img/gallery/8.png" alt="Foto 8"> </div>
+            </div>
+            <div class="window">
+                <img src="img/gallery/9.png" alt="Foto 9" data-index="8" onclick="openLightbox(8)"> 
+                <div class="overlay">
+                    <img src="img/gallery/9.png" alt="Foto 9"> </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -869,13 +896,35 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
                 <div class="swiper-slide">
                     <img src="img/gallery/2.png" alt="Foto 2">
                 </div>
+                <div class="swiper-slide">
+                    <img src="img/gallery/3.png" alt="Foto 3">
                 </div>
+                <div class="swiper-slide">
+                    <img src="img/gallery/4.png" alt="Foto 4">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/gallery/5.png" alt="Foto 5">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/gallery/6.png" alt="Foto 6">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/gallery/7.png" alt="Foto 7">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/gallery/8.png" alt="Foto 8">
+                </div>
+                <div class="swiper-slide">
+                    <img src="img/gallery/9.png" alt="Foto 9">
+                </div>
+            </div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
             <span class="close" onclick="closeLightbox()">&times;</span> 
         </div>
     </div>
 </div>
+
 
 
 
@@ -1029,6 +1078,10 @@ function bukaUndangan() {
             document.getElementById('halamanUtama').classList.add('fade-in');
         }, 50); 
     }, 500); 
+
+    setTimeout(function() {
+        window.scrollTo(0, 0); // Menggulir ke koordinat (0, 0) yaitu bagian paling atas halaman
+    }, 550); // Delay sedikit agar transisi fade-in selesai dulu
 }
 
 // Hentikan musik jika pengguna menutup tab atau jendela browser
@@ -1041,6 +1094,7 @@ function countdown() {
     const weddingDate = new Date("2024-10-15 10:00:00"); 
     const now = new Date().getTime();
     const distance = weddingDate - now;
+    const digits = document.querySelectorAll('.countdown-digit');
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000   
@@ -1048,15 +1102,25 @@ function countdown() {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+    
+
     document.getElementById("countdown-timer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
     if (distance < 0) {
-        clearInterval(x);   
+        clearInterval(x); 
+        document.getElementById("countdown-timer").innerHTML = "Hari Bahagia!";
 
-        document.getElementById("countdown-timer").innerHTML   
- = "Hari Bahagia!";
     }
 
+    digits.forEach(digit => {
+        digit.classList.add('animate'); // Mulai animasi
+        setTimeout(() => {
+            digit.classList.remove('animate'); // Hentikan animasi setelah beberapa saat
+        }, 300); // Sesuaikan waktu sesuai keinginan
+    });
+
+
+    
     // Format tanggal pernikahan
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     const formattedDate = weddingDate.toLocaleDateString('id-ID', options);
@@ -1114,6 +1178,12 @@ function simpanKeKalender() {
         lokasi: 'Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224',
         deskripsi: 'Akad nikah Angga & Fina'
     };
+    try {
+        // ... (kode untuk menyimpan acara ke kalender)
+    } catch (error) {
+        console.error("Terjadi kesalahan saat menyimpan acara ke kalender:", error);
+        alert("Maaf, terjadi kesalahan. Silakan coba lagi nanti.");
+    }
 
     const urlAkadNikah = 'https://www.google.com/calendar/render?action=TEMPLATE' +
         '&text=' + encodeURIComponent(akadNikah.judul) +
@@ -1128,8 +1198,8 @@ function simpanKeKalender() {
 function simpanResepsiKeKalender() {
     const resepsi = {
         judul: 'Resepsi Pernikahan Angga & Fina',
-        tanggalMulai: '20240915T150000',
-        tanggalSelesai: '20240915T180000',
+        tanggalMulai: '20241022T150000',  // Ubah tanggal resepsi di sini
+        tanggalSelesai: '20241022T180000', // Ubah tanggal resepsi di sini
         lokasi: 'Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145',
         deskripsi: 'Resepsi pernikahan Angga & Fina'
     };
@@ -1221,23 +1291,9 @@ window.addEventListener('scroll', function() {
 
 
 //gallery
-const windows = document.querySelectorAll('.window');
-
-windows.forEach(window => {
-    const overlay = window.querySelector('.overlay');
-    const imageSrc = window.dataset.image;
-
-    window.addEventListener('mouseover', () => {
-        const overlayImage = overlay.querySelector('img');
-        if (!overlayImage) {
-            const newImage = document.createElement('img');
-            newImage.src = imageSrc;
-            overlay.appendChild(newImage);
-        }
-    });
-});
 
 let lightboxSwiper;
+
 function initLightboxSwiper() {
     lightboxSwiper = new Swiper('.lightbox-slider', {
         loop: true,
@@ -1251,11 +1307,8 @@ function initLightboxSwiper() {
 // Panggil fungsi inisialisasi saat halaman dimuat
 initLightboxSwiper();
 
-function openLightbox(event) {
-    const clickedImage = event.target; // Dapatkan elemen gambar yang diklik
-    const index = parseInt(clickedImage.dataset.index); // Dapatkan indeks dari atribut data-index
-
-    lightboxSwiper.slideTo(index); // Atur slide aktif
+function openLightbox(index) {
+    lightboxSwiper.slideTo(parseInt(index)); // Atur slide aktif
     document.querySelector('.lightbox').style.display = 'block';
 }
 
