@@ -71,43 +71,47 @@ body {
             margin-bottom: 20px;
         }
 
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Pastikan partikel berada di belakang elemen lain */
+        }
+
+        /* Animasi untuk judul dan tombol */
         .hero h1, .btn-buka-undangan {
-    opacity: 0; /* Awalnya tidak terlihat */
-    animation: fadeIn 1s ease forwards; /* Animasi fade-in */
-}
+            opacity: 0; 
+            animation: fadeIn 1s ease forwards; 
+        }
 
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
 
-.hero h1, .btn-buka-undangan {
-    opacity: 0; 
-    animation: fadeIn 1s ease forwards; 
-}
 
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
 
-.nama-mempelai {
-    /* ... (CSS yang sudah ada) ... */
-    transform: scale(0); 
-    animation: scaleUp 1.5s ease forwards; 
-}
+        .nama-mempelai {
+            /* ... (CSS yang sudah ada) ... */
+            transform: scale(0); 
+            animation: scaleUp 1.5s ease forwards; 
+        }
 
-@keyframes scaleUp {
-    to { transform: scale(1); }
-}
+        @keyframes scaleUp {
+            to { transform: scale(1); }
+        }
 
-.hero {
-    /* ... (CSS yang sudah ada) ... */
-    background-size: 110%; 
-    animation: zoomIn 3s ease forwards; 
-}
+        /* Animasi untuk gambar latar belakang */
+        .hero {
+            /* ... (CSS yang sudah ada) ... */
+            background-size: 110%; 
+            animation: zoomIn 3s ease forwards; 
+        }
 
-@keyframes zoomIn {
-    to { background-size: 100%; }
-}
+        @keyframes zoomIn {
+            to { background-size: 100%; }
+        }
 
         .btn-buka-undangan {
             background-color: #e91e63;
@@ -564,14 +568,18 @@ body {
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="container">
-            <div class="nama-mempelai">
-                <h1>Angga & Fina</h1>
-            </div>
-            <button class="btn-buka-undangan" onclick="bukaUndangan()">Buka Undangan</button>
+    <nav class="navbar navbar-expand-lg">
+    </nav>
+
+<section class="hero">
+    <div class="container">
+        <div class="nama-mempelai">
+            <h1>Angga & Fina</h1>
         </div>
-    </section> 
+        <button class="btn-buka-undangan" onclick="bukaUndangan()">Buka Undangan</button>
+    </div>
+    <div id="particles-js"></div> 
+</section>
 <!--Tombol Undangan End-->
 
 
@@ -804,6 +812,119 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
     <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> 
     <script>
+
+
+//particle
+particlesJS("particles-js", {
+    "particles": {
+        "number": {
+            "value": 80, // Jumlah partikel
+            "density": {
+                "enable": true,
+                "value_area": 800 // Area di mana partikel akan tersebar
+            }
+        },
+        "color": {
+            "value": "#e91e63" // Warna partikel (pink)
+        },
+        "shape": {
+            "type": "circle", // Bentuk partikel
+            "stroke": {
+                "width": 0,
+                "color": "#000000"
+            },
+            "polygon": {
+                "nb_sides": 5
+            },
+            "image": {
+                "src": "img/github.svg", // Jika ingin menggunakan gambar sebagai partikel
+                "width": 100,
+                "height": 100
+            }
+        },
+        "opacity": {
+            "value": 0.5, // Opasitas partikel
+            "random": false,
+            "anim": {
+                "enable": false,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+            }
+        },
+        "size": {
+            "value": 3, // Ukuran partikel
+            "random": true,
+            "anim": {
+                "enable": false,
+                "speed": 40,
+                "size_min": 0.1,
+                "sync": false
+            }
+        },
+        "line_linked": {
+            "enable": true, // Menghubungkan partikel dengan garis
+            "distance": 150, // Jarak maksimum antara partikel yang terhubung
+            "color": "#e91e63", // Warna garis
+            "opacity": 0.4, // Opasitas garis
+            "width": 1 // Ketebalan garis
+        },
+        "move": {
+            "enable": true, // Mengaktifkan gerakan partikel
+            "speed": 3, // Kecepatan gerakan partikel
+            "direction": "none", // Arah gerakan (none = acak)
+            "random": false,
+            "straight": false, // Gerakan lurus atau tidak
+            "out_mode": "out", // Partikel menghilang saat keluar canvas
+            "bounce": false, // Partikel memantul saat mengenai tepi canvas
+            "attract": {
+                "enable": false,
+                "rotateX": 600,
+                "rotateY": 1200
+            }
+        }
+    },
+    "interactivity": {
+        "detect_on": "canvas", // Mendeteksi interaksi pada area canvas
+        "events": {
+            "onhover": {
+                "enable": true, // Mengaktifkan interaksi saat hover
+                "mode": "repulse" // Mode interaksi (repulse = partikel menjauh)
+            },
+            "onclick": {
+                "enable": true, // Mengaktifkan interaksi saat klik
+                "mode": "push" // Mode interaksi (push = menambah partikel baru)
+            },
+            "resize": true // Menyesuaikan partikel saat ukuran layar berubah
+        },
+        "modes": {
+            "grab": {
+                "distance": 400, // Jarak maksimum untuk menarik partikel
+                "line_linked": {
+                    "opacity": 1 // Opasitas garis saat menarik partikel
+                }
+            },
+            "bubble": {
+                "distance": 400, // Jarak maksimum untuk efek bubble
+                "size": 40, // Ukuran bubble
+                "duration": 2, // Durasi efek bubble
+                "opacity": 8, // Opasitas bubble
+                "speed": 3 // Kecepatan bubble
+            },
+            "repulse": {
+                "distance": 200, // Jarak maksimum untuk efek repulse
+                "duration": 0.4 // Durasi efek repulse
+            },
+            "push": {
+                "particles_nb": 4 // Jumlah partikel baru yang ditambahkan saat klik
+            },
+            "remove": {
+                "particles_nb": 2 // Jumlah partikel yang dihapus saat klik
+            }
+        }
+    },
+    "retina_detect": true // Mendeteksi layar retina untuk tampilan yang lebih tajam
+});
 
 
 // Dapatkan elemen audio
