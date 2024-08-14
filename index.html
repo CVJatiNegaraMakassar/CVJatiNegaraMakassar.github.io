@@ -849,11 +849,12 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
     <h2 class="text-center">Jendela Cinta</h2>
     <div class="container-gallery">
         <div class="gallery-windows">
-            <div class="window">
-                <img src="img/gallery/1.png" alt="Foto 1" onclick="openLightbox(0)"> 
-            </div>
-            <div class="window">
-                <img src="img/gallery/2.png" alt="Foto 2" onclick="openLightbox(1)"> 
+<div class="window">
+    <img src="img/gallery/1.png" alt="Foto 1" data-index="0" onclick="openLightbox(event)"> 
+</div>
+<div class="window">
+    <img src="img/gallery/2.png" alt="Foto 2" data-index="1" onclick="openLightbox(event)"> 
+</div>
             </div>
     </div>
 </section>
@@ -891,6 +892,9 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
+
     <script>
 
 
@@ -1233,15 +1237,7 @@ windows.forEach(window => {
     });
 });
 
-function openLightbox(imageSrc) {
-    document.querySelector('.lightbox img').src = imageSrc;
-    document.querySelector('.lightbox').style.display = 'block';
-}
-
-function closeLightbox() {
-    document.querySelector('.lightbox').style.display = 'none';
-}
-let lightboxSwiper; 
+let lightboxSwiper;
 function initLightboxSwiper() {
     lightboxSwiper = new Swiper('.lightbox-slider', {
         loop: true,
@@ -1255,7 +1251,10 @@ function initLightboxSwiper() {
 // Panggil fungsi inisialisasi saat halaman dimuat
 initLightboxSwiper();
 
-function openLightbox(index) {
+function openLightbox(event) {
+    const clickedImage = event.target; // Dapatkan elemen gambar yang diklik
+    const index = parseInt(clickedImage.dataset.index); // Dapatkan indeks dari atribut data-index
+
     lightboxSwiper.slideTo(index); // Atur slide aktif
     document.querySelector('.lightbox').style.display = 'block';
 }
@@ -1263,6 +1262,7 @@ function openLightbox(index) {
 function closeLightbox() {
     document.querySelector('.lightbox').style.display   
  = 'none';
+    lightboxSwiper.slideTo(0); // Reset slide ke indeks 0 saat lightbox ditutup
 }
     </script>
 </body>
