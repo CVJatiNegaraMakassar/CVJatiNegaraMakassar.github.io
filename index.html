@@ -1217,18 +1217,30 @@ window.addEventListener('scroll', function() {
 
 
 //gallery
-// Inisialisasi Swiper untuk galeri foto (di luar lightbox)
-const gallerySwiper = new Swiper('.gallery-slider', {
-    slidesPerView: 3, // Jumlah slide yang terlihat pada satu waktu (sesuaikan sesuai kebutuhan)
-    spaceBetween: 30, // Jarak antar slide
-    loop: true, // Mengaktifkan loop (slide terakhir akan kembali ke slide pertama)
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
+const windows = document.querySelectorAll('.window');
+
+windows.forEach(window => {
+    const overlay = window.querySelector('.overlay');
+    const imageSrc = window.dataset.image;
+
+    window.addEventListener('mouseover', () => {
+        const overlayImage = overlay.querySelector('img');
+        if (!overlayImage) {
+            const newImage = document.createElement('img');
+            newImage.src = imageSrc;
+            overlay.appendChild(newImage);
+        }
+    });
 });
 
-// Inisialisasi Swiper untuk lightbox (jalankan hanya sekali)
+function openLightbox(imageSrc) {
+    document.querySelector('.lightbox img').src = imageSrc;
+    document.querySelector('.lightbox').style.display = 'block';
+}
+
+function closeLightbox() {
+    document.querySelector('.lightbox').style.display = 'none';
+}
 let lightboxSwiper; 
 function initLightboxSwiper() {
     lightboxSwiper = new Swiper('.lightbox-slider', {
@@ -1245,23 +1257,13 @@ initLightboxSwiper();
 
 function openLightbox(index) {
     lightboxSwiper.slideTo(index); // Atur slide aktif
-
-    // Dapatkan semua slide di dalam lightbox
-    const slides = document.querySelectorAll('.lightbox-slider .swiper-slide');
-
-    // Dapatkan path gambar dari slide yang aktif
-    const imageSrc = slides[index].querySelector('img').src;
-
-    // Atur src gambar di dalam lightbox
-    document.querySelector('.lightbox-content img').src = imageSrc;
-
     document.querySelector('.lightbox').style.display = 'block';
 }
 
 function closeLightbox() {
-    document.querySelector('.lightbox').style.display = 'none';
+    document.querySelector('.lightbox').style.display   
+ = 'none';
 }
-
     </script>
 </body>
 </html>
