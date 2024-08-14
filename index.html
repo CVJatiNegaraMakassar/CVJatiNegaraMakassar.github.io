@@ -71,6 +71,44 @@ body {
             margin-bottom: 20px;
         }
 
+        .hero h1, .btn-buka-undangan {
+    opacity: 0; /* Awalnya tidak terlihat */
+    animation: fadeIn 1s ease forwards; /* Animasi fade-in */
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.hero h1, .btn-buka-undangan {
+    opacity: 0; 
+    animation: fadeIn 1s ease forwards; 
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.nama-mempelai {
+    /* ... (CSS yang sudah ada) ... */
+    transform: scale(0); 
+    animation: scaleUp 1.5s ease forwards; 
+}
+
+@keyframes scaleUp {
+    to { transform: scale(1); }
+}
+
+.hero {
+    /* ... (CSS yang sudah ada) ... */
+    background-size: 110%; 
+    animation: zoomIn 3s ease forwards; 
+}
+
+@keyframes zoomIn {
+    to { background-size: 100%; }
+}
+
         .btn-buka-undangan {
             background-color: #e91e63;
             color: white;
@@ -85,6 +123,33 @@ body {
   transform: translateY(-2px); /* Efek hover: naik sedikit */
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Bayangan lebih tegas saat hover */
 }
+
+
+
+.nama-mempelai {
+    /* Gaya untuk nama mempelai */
+    font-family: 'Great Vibes', cursive; /* Atau font kaligrafi lain yang Anda sukai */
+    font-size: 4rem; /* Sesuaikan ukuran font sesuai kebutuhan */
+    color: #fff; /* Warna putih untuk kontras dengan latar belakang */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Bayangan untuk meningkatkan keterbacaan */
+    margin-bottom: 30px;
+    padding: 20px; /* Tambahkan padding untuk memberi ruang */
+    border-radius: 10px; /* Membuat sudut membulat */
+    background-color: rgba(255, 255, 255, 0.2); /* Latar belakang transparan */
+    backdrop-filter: blur(5px); /* Efek blur pada latar belakang */
+}
+
+
+.nama-mempelai {
+    /* ... (CSS yang sudah ada) ... */
+    transform: scale(0); /* Awalnya sangat kecil */
+    animation: scaleUp 1.5s ease forwards; /* Animasi scale-up */
+}
+
+@keyframes scaleUp {
+    to { transform: scale(1); }
+}
+
 
         /* CSS untuk halaman utama */
         .main {
@@ -501,10 +566,12 @@ body {
 
     <section class="hero">
         <div class="container">
-           <h1>Angga & Fina</h1>
+            <div class="nama-mempelai">
+                <h1>Angga & Fina</h1>
+            </div>
             <button class="btn-buka-undangan" onclick="bukaUndangan()">Buka Undangan</button>
         </div>
-    </section>
+    </section> 
 <!--Tombol Undangan End-->
 
 
@@ -735,7 +802,7 @@ Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Sel
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/3/turn.min.js"></script>
- 
+     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> 
     <script>
 
 
