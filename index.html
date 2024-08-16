@@ -260,25 +260,36 @@ body {
 
 
 
-
-        
-/* CSS untuk section mempelai */
-.mempelai {
-    text-align: center; /* Mengatur teks agar berada di tengah */
-}
-
-.mempelai .row {
+/* CSS untuk section mempelai (model baru) */
+.mempelai .pengantin-pria, .mempelai .pengantin-wanita {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Mengatur elemen agar berada di tengah secara horizontal */
-    align-items: center; /* Untuk mengatur elemen agar sejajar secara vertikal di tengah */
+    flex-direction: column; /* Mengatur elemen dalam kolom menjadi vertikal */
+    align-items: center;    /* Mengatur elemen agar sejajar secara horizontal di tengah */
+    text-align: center;     /* Mengatur teks agar berada di tengah */
+    margin-bottom: 30px;    /* Memberi jarak antar profil */
 }
 
-.mempelai .col-md-6 {
-    display: flex; /* Menggunakan flexbox untuk mengatur tata letak dalam kolom */
-    flex-direction: column; /* Mengatur elemen dalam kolom menjadi vertikal */
-    align-items: center; /* Mengatur elemen agar sejajar secara horizontal di tengah */
-    text-align: center; /* Mengatur teks agar berada di tengah */
+.mempelai img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.mempelai .biodata {
+    background-color: rgba(255, 255, 255, 0.8); /* Latar belakang putih transparan */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    color: #e91e63;
+}
+
+.mempelai .biodata h2 {
+    margin-bottom: 10px;
+}
+
+.mempelai .biodata p {
+    margin-bottom: 5px;
 }
 
 /* Media query untuk layar kecil (misalnya, ponsel) */
@@ -287,72 +298,12 @@ body {
         flex-direction: column; /* Mengatur elemen dalam baris menjadi vertikal pada layar kecil */
     }
 
-    
     .mempelai .col-md-6 {
         width: 100%; /* Membuat kolom mengambil lebar penuh pada layar kecil */
         margin-bottom: 20px; /* Tambahkan margin bawah untuk jarak antar kolom */
     }
-
-    .mempelai .biodata {
-        text-align: center; /* Mengatur teks biodata agar berada di tengah pada layar kecil */
-    }
 }
 
-/* Rotasi teks (sesuaikan nilai sesuai kebutuhan) */
-
-
-.mempelai .card {
-    border: none; /* Hapus border bawaan card */
-    background-color: rgba(255, 255, 255, 0.8);  /* Warna latar belakang putih transparan */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan halus */
-    transition: transform 0.2s ease; /* Transisi untuk efek hover */
-    color: #e91e63
-}
-.mempelai .card a { 
-    color: #e91e63; /* Warna pink untuk teks link */
-    text-decoration: none
-    
-}
-
-.mempelai .card a:hover {
-    color: #c2185b; /* Warna pink yang lebih gelap saat hover (opsional) */
-}
-.mempelai .card:hover {
-    transform: translateY(-5px); /* Efek hover: naik sedikit */
-}
-
-.mempelai .card-img-top {
-    border-top-left-radius: 10px; /* Rounded corner di kiri atas */
-    border-top-right-radius: 10px; /* Rounded corner di kanan atas */
-}
-
-.mempelai .card-body {
-    padding: 30px; /* Tambahkan padding pada card-body */
-}
-
-.mempelai .biodata {
-    text-align: left;
-}
-
-.mempelai .biodata h3 {
-    margin-bottom: 10px;
-}
-
-.mempelai .biodata p {
-    margin-bottom: 5px;
-}
-
-/* Media query untuk layar sedang ke atas */
-@media (min-width: 768px) {
-    .mempelai .col-md-6 {
-        flex: 0 0 40%; /* Lebarkan kolom menjadi 40% */
-        max-width: 40%; 
-    }
-}
-
-.mempelai .card-title {
-    font-size: 1.5rem; /* Sesuaikan ukuran font judul sesuai kebutuhan */
-}
 
 
 
@@ -805,6 +756,186 @@ body {
     object-position: center center;
   }
 
+  /*Profile Card*/
+  * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.container-angga {
+  max-width: 900px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+
+.card-angga-wrapper {
+  width: 400px;
+  height: 500px;
+  position: relative;
+}
+
+.card-angga {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 450px;
+  transform: translate(-50%, -50%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transition: 0.5s;
+  
+  .card-angga-image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #000;
+    transition: .5s;
+  }
+  
+  &:hover img {
+    opacity: 0.4;
+    transition: .5s;
+  }
+}
+
+.card-angga:hover .card-angga-image {
+  transform: translateY(-100px);
+  transition: all .9s;
+}
+
+/**** Social Icons *****/
+
+.social-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  
+  li {
+    list-style: none;
+    
+    a {
+      position: relative;
+      display: block;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      background: #fff;
+      font-size: 23px;
+      color: #333;
+      font-weight: bold;
+      margin: 0 6px;
+      transition: .4s;
+      transform: translateY(200px);
+      opacity: 0;
+    } 
+  }
+}
+
+.card-angga:hover .social-icons li a {
+  transform: translateY(0px);
+  opacity: 1; 
+}
+
+.social-icons li a:hover {
+  background: #000; 
+  transition: .2s;
+  .fab {
+    color: #fff;
+  } 
+}
+
+.social-icons li a .fab {
+  transition: .8s;
+    
+  &:hover {
+      transform: rotateY(360deg);
+      color: #fff;
+  } 
+}
+
+.card-angga:hover li:nth-child(1) a {
+    transition-delay: 0.1s;
+}
+.card-angga:hover li:nth-child(2) a {
+  transition-delay: 0.2s;
+}
+.card-angga:hover li:nth-child(3) a {
+  transition-delay: 0.3s;
+}
+.card-angga:hover li:nth-child(4) a {
+  transition-delay: 0.4s;
+}
+
+/**** Personal Details ****/
+
+.details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 120px;
+  z-index: 1;
+  padding: 10px;
+
+  h2 {
+    margin: 30px 0;
+    padding: 0;
+    text-align: center;
+     
+    .job-title {
+        font-size: 1rem;
+        line-height: 2.5rem;
+        color: #333;
+        font-weight: 300;
+    }
+  }
+}
+
+.jane {
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  opacity: 0;
+  background: #fff;
+  width: 100%;
+  height: 120px;
+  z-index: 3;
+  padding: 10px;
+  transition: .4s;
+}
+
+.profile-two .social-icons li a {
+  border-radius: 50%;
+}
+
+.card-angga:hover .profile-img--two {
+  transform: rotateY(180deg);
+}
+
+.card-angga:hover .jane {
+  bottom: 0;
+  left: 0;
+  transition-delay: 0.5s;
+  opacity: 1;
+}
+
+
+
+
     </style>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
@@ -895,40 +1026,46 @@ body {
         </div>
     </section>
 
-    <section class="mempelai" id="profilepengantinnya">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mr-5">
-                        <img src="img/story/2.png" class="card-img-top" alt="Foto pengantin wanita">
-                        <div class="card-body">
-                            <div class="biodata">
-                                <h3>Nama Mempelai Wanita</h3>
-                                <p>Putri dari Ayah ... & Ibu ...</p>
-                                <p>Alamat: ... No. ..., Makassar</p>
-                                <p><a href="https://www.instagram.com/indapk/" target="_blank">@indapk</a></p> 
-                            </div>
-                            <h2 class="card-title text-center mt-3">Pengantin Wanita</h2> 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mr-5">
-                        <img src="img/story/1.png" class="card-img-top" alt="Foto Pengantin Pria">
-                        <div class="card-body">
-                            <div class="biodata">
-                                <h3>AnggaPutraJN</h3>
-                                <p>Putra dari Ayah ... & Ibu ..</p>
-                                <p>Alamat: ... No. ..., Makassar</p>
-                                <p><a href="https://www.instagram.com/anggaputrajn/" target="_blank">@AnggaPutraJN</a></p> 
-                            </div>
-                            <h2 class="card-title text-center mt-3">Pengantin Pria</h2> 
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+
+   <!--Profile Card-->
+   <div class="container-angga">
+    
+    <div class="card-angga-wrapper">
+      
+      <div class="card-angga">
+        
+        <div class="card-angga-image">
+          <img src="img/story/1.png" alt="profile one">
         </div>
-    </section>
+      <div class="details">
+        <h2>AnggaPutraJN
+          <br>
+          <span class="job-title">Pengantin Pria</span>
+        </h2>
+      </div>
+    </div>
+  </div><!-- end box wrapper --> 
+    
+    
+  <div class="card-angga-wrapper">
+      
+      <div class="card-angga profile-two">
+        
+        <div class="card-angga-image profile-img--two">
+          <img src="img/story/2.png" alt="profile two">
+        </div>
+  
+        <div class="details jane">
+            <h2>Alfina Febrianty
+              <br>
+              <span class="job-title">Pengantin Wanita</span>
+            </h2>
+        </div>
+    </div>
+  </div><!-- END box wrapper -->
+     
+  </div><!-- END container-angga -->
 
 
     <!--Kirim kado-->
@@ -1617,7 +1754,7 @@ window.addEventListener("load", () => {
     );
 });
 
-
+//Profile Card
 
     </script>
 
