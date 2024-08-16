@@ -63,21 +63,6 @@ body {
         }
 
 
-        /* Efek paralaks pada gambar latar belakang */
-.hero, .main-header {
-    background-attachment: fixed; /* Gambar tetap saat konten digulir */
-}
-
-
-        .hero.fade-out {
-            opacity: 0;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
         #particles-js {
             position: absolute;
             top: 0;
@@ -96,15 +81,7 @@ body {
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Bayangan lebih tegas */
 }
 
-        .hero h1, .btn-buka-undangan {
-            opacity: 0; 
-            animation: fadeIn 1s ease forwards; 
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
+     
 
 
         .nama-mempelai {
@@ -178,8 +155,6 @@ body {
             text-align: center;
             color: #e91e63;
             display: none; 
-            opacity: 0; 
-            transition: opacity 0.5s ease; 
         }
 
         .main-header {
@@ -888,7 +863,11 @@ body {
             <div class="contentangga">
               <section class="section heroangga"></section>
             </div>
-            
+            <div class="image-containerangga">
+              <img src="https://assets-global.website-files.com/63ec206c5542613e2e5aa784/643312a6bc4ac122fc4e3afa_main%20home.webp" alt="image">
+            </div>
+          </div>
+
     <section class="main-header">
         <div class="countdown">
             <h2>Simpan Tanggalnya</h2>
@@ -1125,11 +1104,7 @@ body {
         <source src="music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-            <div class="image-containerangga">
-              <img src="https://assets-global.website-files.com/63ec206c5542613e2e5aa784/643312a6bc4ac122fc4e3afa_main%20home.webp" alt="image">
-            </div>
-          </div>
-
+    </section>
 <!--Diluat halaman Buka Undangan-->
 
 
