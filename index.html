@@ -183,7 +183,6 @@ body {
         }
 
         .main-header {
-            background-image: url('img/gallery/6.png');  /* Gunakan gambar sebagai latar belakang */
             background-size: cover;
             background-position: center;
             min-height: 500px; 
@@ -820,7 +819,7 @@ body {
     left: 0;
     right: 0;
     z-index: 2;
-    perspective: 500px;
+    perspective: 200px;
     overflow: hidden;
   }
   
@@ -885,255 +884,253 @@ body {
 
 
 <main class="main" id="halamanUtama">
-    <section class="main-header">
-        <div class="wrapperangga">
+            <div class="wrapperangga">
             <div class="contentangga">
               <section class="section heroangga"></section>
-              <section class="section gradient-purple"></section>
-              <section class="section gradient-blue"></section>
+
+              <section class="main-header">
+                <div class="countdown">
+                    <h2>Simpan Tanggalnya</h2>
+                    <p id="countdown-timer">
+                        <span class="countdown-digit" id="months">00</span> 
+                        <span class="countdown-digit" id="days">00</span>
+                        <span class="countdown-digit" id="hours">00</span>
+                        <span class="countdown-digit" id="minutes">00</span>
+                        <span class="countdown-digit" id="seconds">00</span>
+                    </p> 
+                    <p id="wedding-date"></p>
+                </div>
+            </section>
+        
+            <section class="main-content container" id="ucapandandoa">
+                <div class="ucapan-syukur">
+                    <h2 class="text-center">Bismillahirrahmanirrahim</h2>
+                    <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra/putri kami.</p>
+                    <p>Acara pernikahan ini akan menjadi momen sakral dimana dua insan yang saling mencintai akan mengikat janji suci dalam ikatan pernikahan yang diberkahi oleh Allah SWT.</p>
+                    <p>Kehadiran Bapak/Ibu/Saudara/i akan menjadi kebahagiaan dan kehormatan bagi kami. Semoga doa restu yang diberikan akan menjadi awal yang baik bagi kehidupan baru kedua mempelai.</p>
+                    <p>Atas perhatian dan kehadiran Bapak/Ibu/Saudara/i, kami ucapkan terima kasih.</p>
+                </div>
+            </section>
+        
+            <section class="mempelai" id="profilepengantinnya">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mr-5">
+                                <img src="img/story/2.png" class="card-img-top" alt="Foto pengantin wanita">
+                                <div class="card-body">
+                                    <div class="biodata">
+                                        <h3>Nama Mempelai Wanita</h3>
+                                        <p>Putri dari Ayah ... & Ibu ...</p>
+                                        <p>Alamat: ... No. ..., Makassar</p>
+                                        <p><a href="https://www.instagram.com/indapk/" target="_blank">@indapk</a></p> 
+                                    </div>
+                                    <h2 class="card-title text-center mt-3">Pengantin Wanita</h2> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mr-5">
+                                <img src="img/story/1.png" class="card-img-top" alt="Foto Pengantin Pria">
+                                <div class="card-body">
+                                    <div class="biodata">
+                                        <h3>AnggaPutraJN</h3>
+                                        <p>Putra dari Ayah ... & Ibu ..</p>
+                                        <p>Alamat: ... No. ..., Makassar</p>
+                                        <p><a href="https://www.instagram.com/anggaputrajn/" target="_blank">@AnggaPutraJN</a></p> 
+                                    </div>
+                                    <h2 class="card-title text-center mt-3">Pengantin Pria</h2> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+        
+            <!--Kirim kado-->
+            <section class="section-kirim-kado" id="sectionkirimkado">
+                <div class="container">
+                    <h2 class="section-title">Kirim Hadiah</h2>
+                    <p class="section-subtitle">Catatan kado atau kata terima kasih untuk yang memberikan hadiah, di menu (Amplop digital)</p>
+            
+                    <div class="metode-pengiriman">
+                        <label class="metode-item">
+                            <input type="radio" name="metode_pengiriman" id="transfer_langsung" value="direct_transfer" checked>
+                            <span class="metode-button">Direct Transfer</span>
+                            <span class="metode-deskripsi">Kamu bisa Transfer ke rekening yang tertera</span>
+                        </label>
+            
+                        <label class="metode-item">
+                            <input type="radio" name="metode_pengiriman" id="kirim_kado" value="kirim_kado">
+                            <span class="metode-button">Kirim Kado</span>
+                            <span class="metode-deskripsi">Kirim kado ke alamat yang tertera</span>
+                        </label>
+                    </div>
+            
+                    <div id="container-kado" class="active">
+                        <div id="rekening-info">
+                            <p>Kamu bisa transfer ke rekening di bawah ini:</p>
+                            <div class="rekening">
+                                <p>Bank Mandiri</p>
+                                <p id="rekening-bca">1740004968574</p> 
+                                <p>A/N A.P JATI NEGARA MA</p>
+                                <button class="copy-button" onclick="copyToClipboard('rekening-bca')">Salin Nomor Rekening</button>
+                            </div>
+                            <div class="rekening">
+                                <p>Bank Negara Indonesia (BNI)</p>
+                                <p id="rekening-bca2">1211254450</p>
+                                <p>A/N Alfina Febrianty</p>
+                                <button class="copy-button" onclick="copyToClipboard('rekening-bca2')">Salin Nomor Rekening</button>
+                            </div>
+                        </div>
+            
+                        <div id="alamat-info" style="display: none;">
+                            <p>Jl. ... No. ...</p>
+                            <p>Makassar, Sulawesi Selatan</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+        
+        
+        
+            <section class="konfirmasi-kehadiran" id="sectionkehadiran"> 
+                <div class="container konfirmasi-container">
+                    <h1>Konfirmasi Kehadiran</h1>
+                    <form>
+                        <div class="form-group">
+                            <label for="nama">Nama lengkap:</label>
+                            <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Lengkap Anda" required>
+                            <div id="namaError" class="alert alert-danger" style="display: none;">
+                                Maaf, nama anda harus di isi dulu
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check d-flex align-items-center mb-2">
+                                <input class="form-check-input " type="radio" name="kehadiran" id="hadir" value="hadir" checked>
+                                <label class="form-check-label" for="hadir"> 
+                                    Iya, saya akan datang
+                                </label>
+                            </div>
+                            <div class="form-check d-flex align-items-center mb-2">
+                                <input class="form-check-input" type="radio" name="kehadiran" id="tidakHadir" value="tidakHadir">
+                                <label class="form-check-label ml-5" for="tidakHadir">
+                                    Maaf, Sepertinya tidak bisa
+                                </label>
+                            </div>
+                        </div>                
+                        <button type="button" class="btn btn-primary btn-block" onclick="kirimRespon()">KIRIM RESPON</button>
+                    </form>
+                </div>
+            </section>
+        
+            <section class="section-nikah" id="sectiontanggaldantempat">
+                <div class="container">
+                    <div class="container-nikah">
+                        <h2>AKAD NIKAH</h2>
+                        <h2>CLARO HOTEL</h2>
+                        <p>Selasa, 15 Oktober 2024</p>
+                        <p>pukul 09:00 WIB - selesai</p>
+                        <p class="alamat">
+                            <a href="https://maps.app.goo.gl/iHF19HCrhWmVLFrV8" target="_blank">
+                                Jl. A. P. Pettarani No.03, Mannuruki, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90221
+                            </a>
+                        </p>
+                        <div class="container text-center">
+                            <button class="btn-kalender" onclick="simpanKeKalender()">SIMPAN ACARA KE KALENDER</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.59291963077!2d119.43022507408224!3d-5.168994552194936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbee2b66bf04dbb%3A0x1fed8c8d21d796ce!2sCLARO%20HOTEL%20MAKASSAR!5e0!3m2!1sid!2sid!4v1723708471267!5m2!1sid!2sid"
+                    width="600" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        
+            <section class="section-resepsi">
+                <div class="container">
+                    <div class="container-resepsi">
+                        <h2>RESEPSI</h2>
+                        <h2>GAMMARA HOTEL</h2>
+                        <p>Selasa, 22 Oktober 2024</p> <p>pukul 15:00 WIB - selesai</p>
+                        <p class="alamat">
+                            <a href="https://maps.app.goo.gl/4fVKp2S8A5iqod2e7" target="_blank">
+                                Jl. Metro Tj. Bunga Metro Tanjung Bunga, Kp. Buyang, Kec. Mariso, Kota Makassar, Sulawesi Selatan 90121
+                            </a>
+                        </p>
+                        <div class="text-center mt-3"> 
+                            <button class="btn-kalender" onclick="simpanResepsiKeKalender()">SIMPAN ACARA KE KALENDER</button> 
+                        </div> 
+                    </div>
+                </div>
+            </section>
+        
+        
+        
+        
+        <main class="main-slides">
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide" style="background: url(img/gallery/1.png);">
+                        <div class="slide-info">
+                            <h1 class="slide-title">Gambar 1</h1>
+                            <h2 class="slide-desc">Deskripsi Gambar</h2>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background: url(img/gallery/2.png);">
+                        <div class="slide-info">
+                            <h1 class="slide-title">Gambar 2</h1>
+                            <h2 class="slide-desc">Deskripsi Gambar</h2>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background: url(img/gallery/3.png);">
+                        <div class="slide-info">
+                            <h1 class="slide-title">Gambar 3</h1>
+                            <h2 class="slide-desc">Deskripsi Gambar</h2>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" style="background: url(img/gallery/4.png);">
+                        <div class="slide-info">
+                            <h1 class="slide-title">Gambar 4</h1>
+                            <h2 class="slide-desc">Deskripsi Gambar</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+        
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </main>
+        
+        
+        
+               <audio id="myAudio" loop>
+                <source src="music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+
             </div>
             <div class="image-containerangga">
               <img src="https://assets-global.website-files.com/63ec206c5542613e2e5aa784/643312a6bc4ac122fc4e3afa_main%20home.webp" alt="image">
             </div>
           </div>
 
-        
-        <div class="countdown">
-            <h2>Simpan Tanggalnya</h2>
-            <p id="countdown-timer">
-                <span class="countdown-digit" id="months">00</span> 
-                <span class="countdown-digit" id="days">00</span>
-                <span class="countdown-digit" id="hours">00</span>
-                <span class="countdown-digit" id="minutes">00</span>
-                <span class="countdown-digit" id="seconds">00</span>
-            </p> 
-            <p id="wedding-date"></p>
-        </div>
-    </section>
-
-    <section class="main-content container" id="ucapandandoa">
-        <div class="ucapan-syukur">
-            <h2 class="text-center">Bismillahirrahmanirrahim</h2>
-            <p>Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan putra/putri kami.</p>
-            <p>Acara pernikahan ini akan menjadi momen sakral dimana dua insan yang saling mencintai akan mengikat janji suci dalam ikatan pernikahan yang diberkahi oleh Allah SWT.</p>
-            <p>Kehadiran Bapak/Ibu/Saudara/i akan menjadi kebahagiaan dan kehormatan bagi kami. Semoga doa restu yang diberikan akan menjadi awal yang baik bagi kehidupan baru kedua mempelai.</p>
-            <p>Atas perhatian dan kehadiran Bapak/Ibu/Saudara/i, kami ucapkan terima kasih.</p>
-        </div>
-    </section>
-
-    <section class="mempelai" id="profilepengantinnya">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mr-5">
-                        <img src="img/story/2.png" class="card-img-top" alt="Foto pengantin wanita">
-                        <div class="card-body">
-                            <div class="biodata">
-                                <h3>Nama Mempelai Wanita</h3>
-                                <p>Putri dari Ayah ... & Ibu ...</p>
-                                <p>Alamat: ... No. ..., Makassar</p>
-                                <p><a href="https://www.instagram.com/indapk/" target="_blank">@indapk</a></p> 
-                            </div>
-                            <h2 class="card-title text-center mt-3">Pengantin Wanita</h2> 
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mr-5">
-                        <img src="img/story/1.png" class="card-img-top" alt="Foto Pengantin Pria">
-                        <div class="card-body">
-                            <div class="biodata">
-                                <h3>AnggaPutraJN</h3>
-                                <p>Putra dari Ayah ... & Ibu ..</p>
-                                <p>Alamat: ... No. ..., Makassar</p>
-                                <p><a href="https://www.instagram.com/anggaputrajn/" target="_blank">@AnggaPutraJN</a></p> 
-                            </div>
-                            <h2 class="card-title text-center mt-3">Pengantin Pria</h2> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!--Kirim kado-->
-    <section class="section-kirim-kado" id="sectionkirimkado">
-        <div class="container">
-            <h2 class="section-title">Kirim Hadiah</h2>
-            <p class="section-subtitle">Catatan kado atau kata terima kasih untuk yang memberikan hadiah, di menu (Amplop digital)</p>
-    
-            <div class="metode-pengiriman">
-                <label class="metode-item">
-                    <input type="radio" name="metode_pengiriman" id="transfer_langsung" value="direct_transfer" checked>
-                    <span class="metode-button">Direct Transfer</span>
-                    <span class="metode-deskripsi">Kamu bisa Transfer ke rekening yang tertera</span>
-                </label>
-    
-                <label class="metode-item">
-                    <input type="radio" name="metode_pengiriman" id="kirim_kado" value="kirim_kado">
-                    <span class="metode-button">Kirim Kado</span>
-                    <span class="metode-deskripsi">Kirim kado ke alamat yang tertera</span>
-                </label>
-            </div>
-    
-            <div id="container-kado" class="active">
-                <div id="rekening-info">
-                    <p>Kamu bisa transfer ke rekening di bawah ini:</p>
-                    <div class="rekening">
-                        <p>Bank Mandiri</p>
-                        <p id="rekening-bca">1740004968574</p> 
-                        <p>A/N A.P JATI NEGARA MA</p>
-                        <button class="copy-button" onclick="copyToClipboard('rekening-bca')">Salin Nomor Rekening</button>
-                    </div>
-                    <div class="rekening">
-                        <p>Bank Negara Indonesia (BNI)</p>
-                        <p id="rekening-bca2">1211254450</p>
-                        <p>A/N Alfina Febrianty</p>
-                        <button class="copy-button" onclick="copyToClipboard('rekening-bca2')">Salin Nomor Rekening</button>
-                    </div>
-                </div>
-    
-                <div id="alamat-info" style="display: none;">
-                    <p>Jl. ... No. ...</p>
-                    <p>Makassar, Sulawesi Selatan</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <section class="konfirmasi-kehadiran" id="sectionkehadiran"> 
-        <div class="container konfirmasi-container">
-            <h1>Konfirmasi Kehadiran</h1>
-            <form>
-                <div class="form-group">
-                    <label for="nama">Nama lengkap:</label>
-                    <input type="text" class="form-control" id="nama" placeholder="Masukkan Nama Lengkap Anda" required>
-                    <div id="namaError" class="alert alert-danger" style="display: none;">
-                        Maaf, nama anda harus di isi dulu
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="form-check d-flex align-items-center mb-2">
-                        <input class="form-check-input " type="radio" name="kehadiran" id="hadir" value="hadir" checked>
-                        <label class="form-check-label" for="hadir"> 
-                            Iya, saya akan datang
-                        </label>
-                    </div>
-                    <div class="form-check d-flex align-items-center mb-2">
-                        <input class="form-check-input" type="radio" name="kehadiran" id="tidakHadir" value="tidakHadir">
-                        <label class="form-check-label ml-5" for="tidakHadir">
-                            Maaf, Sepertinya tidak bisa
-                        </label>
-                    </div>
-                </div>                
-                <button type="button" class="btn btn-primary btn-block" onclick="kirimRespon()">KIRIM RESPON</button>
-            </form>
-        </div>
-    </section>
-
-    <section class="section-nikah" id="sectiontanggaldantempat">
-        <div class="container">
-            <div class="container-nikah">
-                <h2>AKAD NIKAH</h2>
-                <h2>CLARO HOTEL</h2>
-                <p>Selasa, 15 Oktober 2024</p>
-                <p>pukul 09:00 WIB - selesai</p>
-                <p class="alamat">
-                    <a href="https://maps.app.goo.gl/iHF19HCrhWmVLFrV8" target="_blank">
-                        Jl. A. P. Pettarani No.03, Mannuruki, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90221
-                    </a>
-                </p>
-                <div class="container text-center">
-                    <button class="btn-kalender" onclick="simpanKeKalender()">SIMPAN ACARA KE KALENDER</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="map-container">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.59291963077!2d119.43022507408224!3d-5.168994552194936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbee2b66bf04dbb%3A0x1fed8c8d21d796ce!2sCLARO%20HOTEL%20MAKASSAR!5e0!3m2!1sid!2sid!4v1723708471267!5m2!1sid!2sid"
-            width="600" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-
-    <section class="section-resepsi">
-        <div class="container">
-            <div class="container-resepsi">
-                <h2>RESEPSI</h2>
-                <h2>GAMMARA HOTEL</h2>
-                <p>Selasa, 22 Oktober 2024</p> <p>pukul 15:00 WIB - selesai</p>
-                <p class="alamat">
-                    <a href="https://maps.app.goo.gl/4fVKp2S8A5iqod2e7" target="_blank">
-                        Jl. Metro Tj. Bunga Metro Tanjung Bunga, Kp. Buyang, Kec. Mariso, Kota Makassar, Sulawesi Selatan 90121
-                    </a>
-                </p>
-                <div class="text-center mt-3"> 
-                    <button class="btn-kalender" onclick="simpanResepsiKeKalender()">SIMPAN ACARA KE KALENDER</button> 
-                </div> 
-            </div>
-        </div>
-    </section>
-
-
-
-
-<main class="main-slides">
-    <!-- Slider main container -->
-    <div class="swiper">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide" style="background: url(img/gallery/1.png);">
-                <div class="slide-info">
-                    <h1 class="slide-title">Gambar 1</h1>
-                    <h2 class="slide-desc">Deskripsi Gambar</h2>
-                </div>
-            </div>
-            <div class="swiper-slide" style="background: url(img/gallery/2.png);">
-                <div class="slide-info">
-                    <h1 class="slide-title">Gambar 2</h1>
-                    <h2 class="slide-desc">Deskripsi Gambar</h2>
-                </div>
-            </div>
-            <div class="swiper-slide" style="background: url(img/gallery/3.png);">
-                <div class="slide-info">
-                    <h1 class="slide-title">Gambar 3</h1>
-                    <h2 class="slide-desc">Deskripsi Gambar</h2>
-                </div>
-            </div>
-            <div class="swiper-slide" style="background: url(img/gallery/4.png);">
-                <div class="slide-info">
-                    <h1 class="slide-title">Gambar 4</h1>
-                    <h2 class="slide-desc">Deskripsi Gambar</h2>
-                </div>
-            </div>
-        </div>
-        <!-- If we need pagination -->
-        <div class="swiper-pagination"></div>
-
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    </div>
-</main>
-
-
-
-       <audio id="myAudio" loop>
-        <source src="music.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    </section>
 <!--Diluat halaman Buka Undangan-->
 
 
