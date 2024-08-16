@@ -6,6 +6,7 @@
     <title>Undangan Pernikahan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
     <style>
         /* CSS kustom untuk navbar, hero, dan halaman utama */
@@ -48,7 +49,7 @@ body {
         }
 
         .nav-link:hover {
-            color:#e91e63; 
+            color: white; 
         }
 
         .hero {
@@ -505,18 +506,93 @@ body {
 
 /* CSS untuk section kirim kado */
 
+
+
 .section-kirim-kado .form-check-input:checked {
     background-color: #e91e63; /* Ganti dengan kode warna pink yang Anda inginkan */
     border-color: #e91e63; /* Opsional: sesuaikan warna border juga */
+    margin-bottom: 10px; /* Atur jarak antara pilihan pengiriman */
+}
+.section-kirim-kado .form-check-label .d-flex {
+    align-items: flex-start; /* Sejajarkan teks ke atas */
+}
+.section-kirim-kado .btn {
+    padding: 10px 20px; /* Sesuaikan ukuran tombol */
+}
+.section-kirim-kado .form-check-label p {
+    margin-left: 15px; /* Beri jarak antara tombol dan teks */
+    width: 70%; /* Batasi lebar teks agar tidak terlalu panjang */
+}
+
+#alamat-info {
+    margin-top: 20px; /* Beri jarak antara pilihan pengiriman dan alamat */
+    line-height: 1.6; /* Atur jarak antar baris alamat */
 }
 .section-kirim-kado {
-    background-color: rgba(255, 255, 255, 0.8);  /* Warna latar belakang putih transparan */
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  max-width: 600px;
-  color: #e91e63;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+    color: #e91e63; /* Warna teks utama */
+}
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+
+}
+
+
+.section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.metode-pengiriman {
+    display: flex;
+    justify-content: space-around; /* Atau space-between jika ingin jarak antar pilihan lebih besar */
+    margin-bottom: 20px;
+}
+
+.metode-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.metode-button {
+    background-color: #e91e63; /* Warna tombol */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+.metode-item input[type="radio"] {
+    display: none; /* Sembunyikan radio button bawaan */
+}
+
+.metode-item input[type="radio"]:checked + .metode-button {
+    background-color: #c2185b; /* Warna tombol saat terpilih */
+}
+
+.metode-deskripsi {
+    font-size: 0.9rem;
+}
+
+#container-kado > div {
+    margin-top: 15px;
+}
+
+#container-kado p {
+    margin-bottom: 5px;
 }
 
 .container-kado {
@@ -544,6 +620,7 @@ body {
   font-size: 14px;
   border-radius: 3px;
   cursor: pointer;
+  margin-top: 10px; 
 }
 
 .section-kirim-kado > label { /* Target label radio button */
@@ -552,120 +629,31 @@ body {
   margin-left: 20px; /* Beri sedikit jarak dari kiri */
 }
 
-
-
-/* Basic styling for the gallery */
-.gallery {
-    padding: 50px 0;
-    background-color: rgba(255, 255, 255, 0.8); /* Latar belakang putih transparan */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan halus */
-    text-align: center;
-}
-.gallery h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #e91e63;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+#rekening-info .rekening {
+    margin-bottom: 15px; /* Kurangi margin bawah */
 }
 
-.gallery-windows {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+#rekening-info .rekening p {
+    margin-bottom: 5px; /* Kurangi margin bawah */
+    font-size: 0.9rem; /* Perkecil ukuran font */
 }
 
-.window {
-    width: 200px; /* Sesuaikan ukuran jendela */
-    height: 250px;
-    margin: 10px;
-    overflow: hidden;
-    border: 5px solid #fff; /* Bingkai jendela */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+#rekening-info .rekening p:first-of-type { /* Nama bank */
+    font-weight: bold;
+    font-size: 1rem; /* Sesuaikan jika perlu */
 }
 
-.window img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.copy-button {
+    margin-top: 5px; /* Kurangi margin atas */
+    margin-bottom: 5px; /* Tambahkan margin bawah */
+    font-size: 0.8rem; /* Perkecil ukuran font */
 }
 
-.window:hover img {
-    transform: scale(1.1);
+#rekening-info .rekening:not(:last-child) { /* Tambahkan garis pemisah kecuali setelah blok terakhir */
+    border-bottom: 1px solid #ddd; /* Warna garis bisa disesuaikan */
+    padding-bottom: 15px; /* Tambahkan padding bawah agar garis tidak terlalu dekat dengan teks */
 }
 
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.lightbox-content {
-    position: relative;
-    margin: 15% auto;
-    max-width: 80%;
-    max-height: 80%;
-}
-
-.lightbox-content img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-.lightbox .swiper-button-prev, 
-.lightbox .swiper-button-next {
-    /* Gaya untuk tombol navigasi slider di dalam lightbox */
-    color: white; /* Atau warna lain yang sesuai */
-}
-.close {
-    color: white;
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 35px;
-    font-weight: bold;    z-index: 5; /* Atau nilai yang lebih tinggi dari elemen lain di lightbox */
-}
-
-.close:hover,
-.close:focus {
-    color: #999;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* ... (CSS yang sudah ada) ... */
-
-.window .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang gelap transparan */
-    opacity: 0; /* Awalnya tersembunyi */
-    transition: opacity 0.3s ease; /* Transisi halus */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
-    max-height: 250px
-}
-
-.window:hover .overlay {
-    opacity: 1; /* Muncul saat hover */
-    pointer-events: auto; /* Mengizinkan event mouse saat di-hover */
-}
-
-.window .overlay img {
-    max-width: 90%; /* Batasi lebar gambar agar tidak melebihi viewport */
-    max-height: 90%;
-    display: block;
-}
 
 
 /* Wedding date */
@@ -687,6 +675,111 @@ body {
     border-color: #f5c6cb; /* Contoh warna border pink muda */
     padding: 10px;
     margin-top: 5px;
+}
+
+
+
+
+/*Slde Effect*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    color: white;
+}
+
+.main-slides {
+    background: url(img/gallery/1.png);
+    height: 100dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    overflow: hidden;
+    background-size: cover !important;
+    background-position: center !important;
+    transition: 0.3s ease-in-out background;
+}
+.main-slides::before {
+    content: "";
+    position: absolute;
+    background: rgb(0, 0, 0, 0.25);
+    width: 100%;
+    height: 100dvh;
+    backdrop-filter: blur(15px);
+}
+
+.swiper {
+    max-width: 1200px;
+    padding: 50px 0px;
+    aspect-ratio: 14 / 9;
+    max-height: 100%;
+    min-width: 700px;
+}
+
+.swiper-slide {
+    background-size: cover !important;
+    background-position: center !important;
+    scale: 0.8;
+    transition: 0.3s ease-in-out scale;
+    display: flex;
+    align-items: end;
+}
+.swiper-slide::before {
+    content: "";
+    position: absolute;
+    background: linear-gradient(to top, rgb(0, 0, 0, 0.75), transparent);
+    width: 100%;
+    height: 50%;
+}
+
+.slide-info {
+    margin-bottom: 25px;
+    margin-left: -15%;
+}
+.slide-title,
+.slide-desc {
+    opacity: 0;
+    transition: 0.7s ease-in-out opacity, 0.7s ease-in-out bottom;
+    text-shadow: 4px 8px 15px rgb(0, 0, 0, 0.5);
+    position: relative;
+}
+.slide-title {
+    font-size: clamp(30px, 4vw, 50px);
+    bottom: -30px;
+}
+.slide-desc {
+    font-size: clamp(18px, 2.5vw, 30px);
+    bottom: -15px;
+    color: rgb(255, 255, 255, 0.7);
+    font-weight: 600;
+}
+
+.swiper-slide-active {
+    scale: 1;
+}
+.swiper-slide-active .slide-title,
+.swiper-slide-active .slide-desc {
+    opacity: 1;
+    bottom: 0;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    scale: 0.7;
+    color: white;
+    margin: 0 50px;
+}
+
+.swiper-pagination-bullet {
+    background: white;
+    width: 15px;
+    height: 15px;
 }
 
     </style>
@@ -716,6 +809,9 @@ body {
                         <a class="nav-link" href="#profilepengantinnya">Profile</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#sectionkirimkado">Amplop Digital</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#sectionkehadiran">Kehadiran</a>
                     </li>
                     <li class="nav-item">
@@ -730,7 +826,7 @@ body {
   <header class="hero">
     <div class="container">
         <div class="nama-mempelai">
-            <h1>Angga & Fina</h1>
+            <h1>Angga & ....</h1>
         </div>
         <button class="btn-buka-undangan" onclick="bukaUndangan()">Buka Undangan</button>
     </div>
@@ -769,13 +865,13 @@ body {
             <div class="row">
                 <div class="col-md-6">
                     <div class="card mr-5">
-                        <img src="img/story/2.png" class="card-img-top" alt="Foto Alfina Febrianty, pengantin wanita">
+                        <img src="img/story/2.png" class="card-img-top" alt="Foto pengantin wanita">
                         <div class="card-body">
                             <div class="biodata">
-                                <h3>Alfina Febrianty</h3>
+                                <h3>Nama Mempelai Wanita</h3>
                                 <p>Putri dari Ayah ... & Ibu ...</p>
                                 <p>Alamat: ... No. ..., Makassar</p>
-                                <p><a href="https://www.instagram.com/alfinaaaa_02/" target="_blank">@alfinaaaa_02</a></p> 
+                                <p><a href="https://www.instagram.com/indapk/" target="_blank">@indapk</a></p> 
                             </div>
                             <h2 class="card-title text-center mt-3">Pengantin Wanita</h2> 
                         </div>
@@ -798,6 +894,55 @@ body {
             </div>
         </div>
     </section>
+
+
+    <!--Kirim kado-->
+    <section class="section-kirim-kado" id="sectionkirimkado">
+        <div class="container">
+            <h2 class="section-title">Kirim Hadiah</h2>
+            <p class="section-subtitle">Catatan kado atau kata terima kasih untuk yang memberikan hadiah, di menu (Amplop digital)</p>
+    
+            <div class="metode-pengiriman">
+                <label class="metode-item">
+                    <input type="radio" name="metode_pengiriman" id="transfer_langsung" value="direct_transfer" checked>
+                    <span class="metode-button">Direct Transfer</span>
+                    <span class="metode-deskripsi">Kamu bisa Transfer ke rekening yang tertera</span>
+                </label>
+    
+                <label class="metode-item">
+                    <input type="radio" name="metode_pengiriman" id="kirim_kado" value="kirim_kado">
+                    <span class="metode-button">Kirim Kado</span>
+                    <span class="metode-deskripsi">Kirim kado ke alamat yang tertera</span>
+                </label>
+            </div>
+    
+            <div id="container-kado" class="active">
+                <div id="rekening-info">
+                    <p>Kamu bisa transfer ke rekening di bawah ini:</p>
+                    <div class="rekening">
+                        <p>Bank Mandiri</p>
+                        <p id="rekening-bca">1740004968574</p> 
+                        <p>A/N A.P JATI NEGARA MA</p>
+                        <button class="copy-button" onclick="copyToClipboard('rekening-bca')">Salin Nomor Rekening</button>
+                    </div>
+                    <div class="rekening">
+                        <p>Bank Negara Indonesia (BNI)</p>
+                        <p id="rekening-bca2">1211254450</p>
+                        <p>A/N Alfina Febrianty</p>
+                        <button class="copy-button" onclick="copyToClipboard('rekening-bca2')">Salin Nomor Rekening</button>
+                    </div>
+                </div>
+    
+                <div id="alamat-info" style="display: none;">
+                    <p>Jl. ... No. ...</p>
+                    <p>Makassar, Sulawesi Selatan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
 
     <section class="konfirmasi-kehadiran" id="sectionkehadiran"> 
         <div class="container konfirmasi-container">
@@ -833,11 +978,12 @@ body {
         <div class="container">
             <div class="container-nikah">
                 <h2>AKAD NIKAH</h2>
+                <h2>CLARO HOTEL</h2>
                 <p>Selasa, 15 Oktober 2024</p>
                 <p>pukul 09:00 WIB - selesai</p>
                 <p class="alamat">
-                    <a href="https://maps.app.goo.gl/pcqtSP16mVvpdYSEA" target="_blank">
-                        Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224 
+                    <a href="https://maps.app.goo.gl/iHF19HCrhWmVLFrV8" target="_blank">
+                        Jl. A. P. Pettarani No.03, Mannuruki, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90221
                     </a>
                 </p>
                 <div class="container text-center">
@@ -849,7 +995,7 @@ body {
 
     <div class="map-container">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.504610456196!2d119.40819597408239!3d-5.183051552299693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbf1d83c0ed5af1%3A0xd3112f2d0287fd9!2sJl.%20Balang%20Baru%202%20No.56%2C%20Balang%20Baru%2C%20Kec.%20Tamalate%2C%20Kota%20Makassar%2C%20Sulawesi%20Selatan%2090224!5e0!3m2!1sid!2sid!4v1723544988665!5m2!1sid!2sid"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.59291963077!2d119.43022507408224!3d-5.168994552194936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbee2b66bf04dbb%3A0x1fed8c8d21d796ce!2sCLARO%20HOTEL%20MAKASSAR!5e0!3m2!1sid!2sid!4v1723708471267!5m2!1sid!2sid"
             width="600" 
             height="450" 
             style="border:0;" 
@@ -863,10 +1009,11 @@ body {
         <div class="container">
             <div class="container-resepsi">
                 <h2>RESEPSI</h2>
+                <h2>GAMMARA HOTEL</h2>
                 <p>Selasa, 22 Oktober 2024</p> <p>pukul 15:00 WIB - selesai</p>
                 <p class="alamat">
-                    <a href="https://maps.app.goo.gl/kANjkCeWaSMr5vY2A" target="_blank">
-                        Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145
+                    <a href="https://maps.app.goo.gl/4fVKp2S8A5iqod2e7" target="_blank">
+                        Jl. Metro Tj. Bunga Metro Tanjung Bunga, Kp. Buyang, Kec. Mariso, Kota Makassar, Sulawesi Selatan 90121
                     </a>
                 </p>
                 <div class="text-center mt-3"> 
@@ -879,45 +1026,45 @@ body {
 
 
 
-  <!--Section Gallery-->
-  <section class="gallery" id="gallerynya">
-    <h2 class="text-center">Jendela Cinta</h2>
-    <div class="container-gallery">
-        <div class="gallery-windows">
-            <div class="window">
-                <img data-src="img/gallery/1.png" alt="Foto 1" class="lazy" data-index="0" onclick="openLightbox(0)"> 
-                <div class="overlay">
-                    <img data-src="img/gallery/1.png" alt="Foto 1"> 
+<main class="main-slides">
+    <!-- Slider main container -->
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide" style="background: url(img/gallery/1.png);">
+                <div class="slide-info">
+                    <h1 class="slide-title">Gambar 1</h1>
+                    <h2 class="slide-desc">Deskripsi Gambar</h2>
                 </div>
             </div>
-            <div class="window">
-                <img data-src="img/gallery/2.png" alt="Foto 2" class="lazy" data-index="1" onclick="openLightbox(1)"> 
-                <div class="overlay">
-                    <img data-src="img/gallery/2.png" alt="Foto 2"> 
+            <div class="swiper-slide" style="background: url(img/gallery/2.png);">
+                <div class="slide-info">
+                    <h1 class="slide-title">Gambar 2</h1>
+                    <h2 class="slide-desc">Deskripsi Gambar</h2>
                 </div>
             </div>
+            <div class="swiper-slide" style="background: url(img/gallery/3.png);">
+                <div class="slide-info">
+                    <h1 class="slide-title">Gambar 3</h1>
+                    <h2 class="slide-desc">Deskripsi Gambar</h2>
+                </div>
             </div>
-    </div>
-</section>
-
-<div class="lightbox">
-    <div class="lightbox-content">
-        <div class="swiper lightbox-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="img/gallery/1.png" alt="Foto 1">
+            <div class="swiper-slide" style="background: url(img/gallery/4.png);">
+                <div class="slide-info">
+                    <h1 class="slide-title">Gambar 4</h1>
+                    <h2 class="slide-desc">Deskripsi Gambar</h2>
                 </div>
-                <div class="swiper-slide">
-                    <img src="img/gallery/2.png" alt="Foto 2">
-                </div>
-                </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            <span class="close" onclick="closeLightbox()">&times;</span> 
+            </div>
         </div>
-    </div>
-</div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
 
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+</main>
 
 
 
@@ -941,6 +1088,27 @@ body {
 
 
     <script>
+
+function selectMetode(metodeId) {
+    document.getElementById(metodeId).checked = true; 
+
+    if (metodeId === 'transfer_langsung') {
+        showRekeningInfo();
+    } else if (metodeId === 'kirim_hadiah') {
+        showAlamatInfo();
+    }
+}
+
+function showRekeningInfo() {
+    document.getElementById('rekening-info').style.display = 'block';
+    document.getElementById('alamat-info').style.display = 'none';
+}
+
+function showAlamatInfo() {
+    document.getElementById('rekening-info').style.display = 'none';
+    document.getElementById('alamat-info').style.display = 'block';
+}
+
 
 
 //particle
@@ -1184,8 +1352,8 @@ function simpanKeKalender() {
         judul: 'Akad Nikah Angga & Fina',
         tanggalMulai: '20241015T090000',
         tanggalSelesai: '20241015T120000',
-        lokasi: 'Jl. Balang Baru 2 No.56, Balang Baru, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90224',
-        deskripsi: 'Akad nikah Angga & Fina'
+        lokasi: 'Jl. A. P. Pettarani No.03, Mannuruki, Kec. Tamalate, Kota Makassar, Sulawesi Selatan 90221',
+        deskripsi: 'Akad nikah Angga & ....'
     };
     try {
         // ... (kode untuk menyimpan acara ke kalender)
@@ -1209,7 +1377,7 @@ function simpanResepsiKeKalender() {
         judul: 'Resepsi Pernikahan Angga & Fina',
         tanggalMulai: '20241022T150000',  // Ubah tanggal resepsi di sini
         tanggalSelesai: '20241022T180000', // Ubah tanggal resepsi di sini
-        lokasi: 'Jl. Tinumbu No.86, Bunga Ejaya, Kec. Bontoala, Kota Makassar, Sulawesi Selatan 90145',
+        lokasi: 'Jl. Metro Tj. Bunga Metro Tanjung Bunga, Kp. Buyang, Kec. Mariso, Kota Makassar, Sulawesi Selatan 90121',
         deskripsi: 'Resepsi pernikahan Angga & Fina'
     };
 
@@ -1265,27 +1433,18 @@ radioButtons.forEach(radio => {
 });
 
 // Fungsi untuk menyalin teks ke clipboard
-function copyToClipboard(text) {
-    navigator.clipboard.writeText(text)
+function copyToClipboard(elementId) {
+    const textToCopy = document.getElementById(elementId).textContent;
+    navigator.clipboard.writeText(textToCopy)
         .then(() => {
-            alert('Norek Telah Disalin: ' + text); 
+            alert('Nomor Rekening berhasil disalin!');
         })
         .catch(err => {
-            console.error('Gagal menyalin teks: ', err);
-            alert('Gagal menyalin teks. Silakan coba lagi atau salin secara manual.');
+            console.error('Gagal menyalin nomor rekening: ', err);
+            alert('Gagal menyalin nomor rekening. Silakan coba lagi atau salin secara manual.');
         });
 }
 
-// Inisialisasi Swiper untuk galeri foto
-const swiper = new Swiper('.gallery-slider', {
-    slidesPerView: 1, 
-    spaceBetween: 20, 
-    loop: true,
-    autoplay: {
-        delay: 3000, 
-        disableOnInteraction: false,
-    },
-});
 
 // Tambahkan event listener untuk scroll pada window
 window.addEventListener('scroll', function() {
@@ -1298,36 +1457,6 @@ window.addEventListener('scroll', function() {
     }
 });
 
-
-//gallery
-
-let lightboxSwiper;
-
-function initLightboxSwiper() {
-    lightboxSwiper = new Swiper('.lightbox-slider', {
-        loop: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-    });
-}
-
-// Panggil fungsi inisialisasi saat halaman dimuat
-initLightboxSwiper();
-
-function openLightbox(index) {
-    lightboxSwiper.slideTo(parseInt(index)); // Atur slide aktif
-    document.querySelector('.lightbox').style.display = 'block';
-}
-
-function closeLightbox() {
-    document.querySelector('.lightbox').style.display   
- = 'none';
-    lightboxSwiper.slideTo(0); // Reset slide ke indeks 0 saat lightbox ditutup
-}
-
-// ... (kode JavaScript lainnya) ...
 
 // Fungsi untuk menangani lazy loading gambar
 function lazyLoadImages() {
@@ -1355,7 +1484,70 @@ function lazyLoadImages() {
 window.addEventListener('scroll', lazyLoadImages);
 lazyLoadImages(); // Panggil sekali saat halaman dimuat untuk memuat gambar yang terlihat langsung
 
+
+
+//Slide Effect Gallery
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+  
+  slidesPerView: 3,
+  centeredSlides: true,
+
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+
+    dynamicBullets: true,
+    clickable: true,
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+// Triggers to update the main background
+// when doing the next slide
+swiper.on('slideNextTransitionStart', () => {
+    updateMainBackground()
+})
+
+// Triggers to update the main background
+// when doing the previous slide
+swiper.on('slidePrevTransitionStart', () => {
+    updateMainBackground()
+})
+
+function updateMainBackground() {
+    // Get the currently active slide element
+    const activeSlide = document.querySelector('.swiper-slide-active')
+    // Get the main container element
+    const mainContainer = document.querySelector('.main-slides')
+    // Update the background style of the main container
+    // to match the active slide
+    mainContainer.style.background = activeSlide.style.background
+}
+
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+}, false);
+
+document.addEventListener('keydown', function(e) {
+  if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'a' || e.key === 'c')) {
+      e.preventDefault();
+  }
+}, false);
+
     </script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
 
