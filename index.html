@@ -813,8 +813,7 @@ body {
     <div class="wrapperangga">
         <div class="contentangga">
           <section class="section heroangga"></section>
-        </div>
-        <header class="hero">
+          <header class="hero">
             <div class="container">
                 <div class="nama-mempelai">
                     <h1>Angga & ....</h1>
@@ -823,9 +822,10 @@ body {
             </div>
             <div id="particles-js"></div> 
         </header>
+        </div>
         <!--Tombol Undangan End-->
         <div class="image-containerangga">
-          <img src="https://assets-global.website-files.com/63ec206c5542613e2e5aa784/643312a6bc4ac122fc4e3afa_main%20home.webp" alt="image">
+          <img src="img/gallery/mybg.png" alt="image">
         </div>
       </div>
 
@@ -1273,6 +1273,7 @@ function bukaUndangan() {
     document.querySelector('.hero').classList.add('fade-out'); 
     setTimeout(function() {
         document.querySelector('.hero').style.display = 'none';
+        document.querySelector('.wrapperangga').style.display = 'none';
         document.getElementById('halamanUtama').style.display = 'block';
         document.querySelector('.navbar').style.display = 'block';
         setTimeout(function() {
