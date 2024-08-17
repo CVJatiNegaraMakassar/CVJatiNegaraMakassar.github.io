@@ -798,11 +798,15 @@ body {
     color: #e91e63;
 }
 
+
+
     </style>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
 </head>
 <body>
+
+    <!--Background Scroll-->
     <div class="wrapperangga">
         <div class="contentangga">
           <section class="section heroangga"></section>
@@ -811,23 +815,23 @@ body {
                 <div class="nama-mempelai">
                     <h1>Angga & ....</h1>
                 </div>
-                <button class="btn-buka-undangan" onclick="bukaUndangan()">Buka Undangan</button>
+                <button class="btn-buka-undangan" onclick="bukaUndangan()" id="#ucapandandoa">Buka Undangan</button>
+                <!--Tombol Undangan End-->
             </div>
             <div id="particles-js"></div> 
         </header>
         </div>
-        <!--Tombol Undangan End-->
         <div class="image-containerangga">
-          <img src="img/gallery/mybg.png" alt="image">
+          <img src="img/gallery/mybg1.png" alt="image">
         </div>
       </div>
 
 
 
-
+<!--Nav Bar-->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand" href="#">Nama Undangan</a>
+            <a class="navbar-brand" href="#">CVJatiNegaraMakassar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -862,7 +866,7 @@ body {
 
 
 
-
+<!--Halaman utama/Countdown Wedding-->
 <main class="main" id="halamanUtama">
     <section class="main-header">
         <div class="countdown">
@@ -878,6 +882,8 @@ body {
         </div>
     </section>
 
+
+    <!--Ucapan Syukur-->
     <section class="main-content container" id="ucapandandoa">
         <div class="ucapan-syukur">
             <h2 class="text-center">Bismillahirrahmanirrahim</h2>
@@ -891,7 +897,7 @@ body {
 
 
    <!--Profile Card-->
-   <div class="profile-cards">
+   <div class="profile-cards" id="profilepengantinnya">
     <div class="card">
         <div class="image-container">
             <img src="img/story/1.png" alt="Foto Pengantin Pria">
@@ -962,7 +968,7 @@ body {
 
 
 
-
+<!--Konfirmasi Kehadiran-->
     <section class="konfirmasi-kehadiran" id="sectionkehadiran"> 
         <div class="container konfirmasi-container">
             <h1>Konfirmasi Kehadiran</h1>
@@ -993,6 +999,7 @@ body {
         </div>
     </section>
 
+    <!--Akad Nikah & Resepsi-->
     <section class="section-nikah" id="sectiontanggaldantempat">
         <div class="container">
             <div class="container-nikah">
@@ -1044,8 +1051,8 @@ body {
 
 
 
-
-<main class="main-slides">
+<!--Gallery-->
+<main class="main-slides" id="gallerynya">
     <!-- Slider main container -->
     <div class="swiper">
         <!-- Additional required wrapper -->
@@ -1086,16 +1093,16 @@ body {
 </main>
 
 
-
+<!--Music Latar Belakang-->
        <audio id="myAudio" loop>
         <source src="music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
     </section>
-<!--Diluat halaman Buka Undangan-->
+<!--Diluar halaman Buka Undangan-->
 
 
-
+<!--Kebutuhan Script-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script> 
@@ -1104,10 +1111,9 @@ body {
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
 <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
 
-
+<!--My Script-->
     <script>
 
 function selectMetode(metodeId) {
@@ -1246,7 +1252,6 @@ particlesJS("particles-js", {
 
 
 // Dapatkan elemen audio
-// Dapatkan elemen audio
 const audio = document.getElementById("myAudio");
 
 // Putar musik saat tombol "Buka Undangan" diklik
@@ -1274,6 +1279,7 @@ function bukaUndangan() {
 window.addEventListener('beforeunload', function() {
     audio.pause();
 });
+
 // Fungsi untuk menghitung mundur waktu
 function countdown() {
     const weddingDate = new Date("2024-10-15 10:00:00"); 
@@ -1320,7 +1326,6 @@ function countdown() {
         document.getElementById("countdown-timer").innerHTML = "Hari Bahagia!";
 
         // Tambahkan efek partikel atau confetti di sini jika diinginkan
-        // Anda bisa menggunakan library seperti confetti.js atau membuat efek sendiri dengan CSS dan JavaScript
     }
 
     // Format tanggal pernikahan
@@ -1378,7 +1383,6 @@ function simpanKeKalender() {
         deskripsi: 'Akad nikah Angga & ....'
     };
     try {
-        // ... (kode untuk menyimpan acara ke kalender)
     } catch (error) {
         console.error("Terjadi kesalahan saat menyimpan acara ke kalender:", error);
         alert("Maaf, terjadi kesalahan. Silakan coba lagi nanti.");
@@ -1600,8 +1604,6 @@ window.addEventListener("load", () => {
       "<"
     );
 });
-
-//Profile Card
 
     </script>
 
